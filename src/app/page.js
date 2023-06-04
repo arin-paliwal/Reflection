@@ -1,5 +1,7 @@
+import Navbar from "./components/Navbar"
 export default function Home() {
+  const styles={}
   return (
-      <h1 className="text-[50px]">Hi</h1>
-  )
+    <Navbar/>
+  );
 }
