@@ -1,7 +1,5 @@
 # Reflection - Curated Blogs for Curious Minds
 
-<img src="./logoForReadme.png" alt="Reflection Logo" height="300" width="300">
-
 ## Introduction
 
 Reflection is an app designed to provide a collection of curated blogs and articles for curious minds. It aims to offer a platform where users can explore a diverse range of topics and discover thought-provoking content.
