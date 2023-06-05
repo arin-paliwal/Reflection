@@ -16,7 +16,8 @@ const Banner = () => {
           <h3 className="text-2xl">Curated Blogs for Curious Minds.</h3>
           <button className={styles.accentedButton}>Start Reading</button>
         </div>
-        <Image className="rounded-20 h-40 object-contain flex-1 hidden md:inline-flex animate-spin-slow"
+        <div className="flex-1"></div>
+        <Image className="h-[200px] object-contain flex-1 md:inline-flex animate-spin-slow"
           src={banner}
           alt="banner"
         />
