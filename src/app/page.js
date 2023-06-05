@@ -1,7 +1,10 @@
 import Navbar from "./components/Navbar"
+import Banner from "./components/Banner";
 export default function Home() {
-  const styles={}
   return (
-    <Navbar/>
+    <>
+      <Navbar/>
+      <Banner/>
+    </>
   );
 }
