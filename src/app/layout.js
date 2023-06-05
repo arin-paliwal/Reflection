@@ -1,7 +1,7 @@
 import './globals.css'
 import Head from 'next/head';
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+import { Archivo } from 'next/font/google'
+const inter = Archivo({ subsets: ['latin'] })
 export const metadata = {
   title: "Reflection",
   description: "Curated Blogs for Curious Minds.",

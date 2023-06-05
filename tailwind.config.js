@@ -41,6 +41,8 @@ module.exports = {
           'Courier New',
           'monospace',
         ],
+        mediumSerifItalic:['ArchivoItalic'],
+        mediumSerif:['Archivo'],
     },
     extend: {
       backgroundImage: {
