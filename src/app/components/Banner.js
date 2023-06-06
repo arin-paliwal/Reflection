@@ -3,7 +3,7 @@ import "../styles/spin.css";
 import banner from "../../../assets/images/banner.png";
 import React from "react";
 const styles = {
-  wrapper: "h-[350px] rounded-br-[20px] rounded-bl-[20px] flex items-center justify-center bg-[#A4BC92]",
+  wrapper: "h-[350px]  flex items-center justify-center bg-[#A4BC92]",
   content: "max-w-7xl flex flex-1 items-center justify-between",
   accentedButton: "bg-black text-white py-2 px-4 rounded-full",
 };
@@ -17,7 +17,8 @@ const Banner = () => {
           <button className={styles.accentedButton}>Start Reading</button>
         </div>
         <div className="flex-1"></div>
-        <Image className="h-[200px] object-contain flex-1 md:inline-flex animate-spin-slow"
+        <Image
+          className="h-[200px] object-contain flex-1 md:inline-flex animate-spin-slow"
           src={banner}
           alt="banner"
         />
