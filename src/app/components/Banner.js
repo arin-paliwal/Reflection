@@ -12,7 +12,7 @@ const Banner = () => {
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <div className="space-y-5">
-          <h1 className="max-w-xl text-[6rem] font-mediumSerif">Be Curious.</h1>
+          <h1 className="max-w-xl text-[6rem]">Be Curious.</h1>
           <h3 className="text-2xl">Curated Blogs for Curious Minds.</h3>
           <button className={styles.accentedButton}>Start Reading</button>
         </div>
