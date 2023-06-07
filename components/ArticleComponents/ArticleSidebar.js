@@ -19,6 +19,7 @@ const styles = {
     "rounded-full overflow-hidden h-[1.4rem] w-[1.4rem]",
   recommendationAuthorName: "text-sm",
   recommendationAuthorContainer: "flex items-center gap-[.6rem]",
+  recommendationTitle: "font-bold",
 };
 const ArticleSidebar = () => {
   return (
@@ -51,6 +52,9 @@ const ArticleSidebar = () => {
               <Image src={avatar} alt="logo" height={100} width={100} />
             </div>
             <div className={styles.recommendationAuthorName}>Arin Paliwal</div>
+          </div>
+          <div className={styles.recommendationTitle}>
+            How to create a Issues & PR in GitHub.
           </div>
         </div>
       </div>
