@@ -5,7 +5,8 @@ import bookmark from "../assets/images/bookmark.gif";
 import Link from "next/link";
 const styles = {
   authorContainer: "flex gap-5 ",
-  authorImageContainer: "grid place-items-center rounded-full overflow-hidden h-[1.4rem] w=[1.4rem]",
+  authorImageContainer:
+    "grid place-items-center rounded-full overflow-hidden h-[1.4rem] w=[1.4rem]",
   authorImage: "object-cover",
   postDetails: "flex-[2.5] flex flex-col",
   wrapper: "flex max-width-[46rem] h-[10rem] items-center gap-1rem",
@@ -14,7 +15,7 @@ const styles = {
   authorName: "font-semibold",
   detailsContainer: "flex items-center justify-between text-[#787878]",
   articleDetails: "my-2 text-[.8rem]",
-  category: "bg-[#d5d5d5] p-2 rounded-full",
+  category: "bg-[#000] p-2 text-white rounded-full",
   bookmark: "cursor-pointer",
 };
 const Cards = () => {
@@ -42,7 +43,7 @@ const Cards = () => {
           </div>
           <div className={styles.detailsContainer}>
             <div className={styles.articleDetails}>
-              20 September ● 5 min ●{" "}
+              20 September &nbsp;● 5 min &nbsp;●{" "}
               <span className={styles.category}>skills enhancement</span>
             </div>
             <span className={styles.bookmark}>
