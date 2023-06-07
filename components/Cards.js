@@ -5,7 +5,7 @@ import bookmark from "../assets/images/bookmark.gif";
 import Link from "next/link";
 const styles = {
   authorContainer: "flex gap-5 ",
-  authorImageContainer: "",
+  authorImageContainer: "grid place-items-center rounded-full overflow-hidden h-[1.4rem] w=[1.4rem]",
   authorImage: "object-cover",
   postDetails: "flex-[2.5] flex flex-col",
   wrapper: "flex max-width-[46rem] h-[10rem] items-center gap-1rem",
