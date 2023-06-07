@@ -15,6 +15,10 @@ const styles = {
   authorFollowers: "text-[#787878]",
   authorActions: "flex gap-[.6rem] my-[1rem]",
   actionButton: "bg-black text-white rounded-full px-[.6rem] py-[.4rem]",
+  recommendationAuthorProfileContainer:
+    "rounded-full overflow-hidden h-[1.4rem] w-[1.4rem]",
+  recommendationAuthorName: "text-sm",
+  recommendationAuthorContainer: "flex items-center gap-[.6rem]",
 };
 const ArticleSidebar = () => {
   return (
@@ -37,6 +41,17 @@ const ArticleSidebar = () => {
         <div className={styles.authorActions}>
           <button className={styles.actionButton}>Follow</button>
           <button className={styles.actionButton}>All Blogs</button>
+        </div>
+      </div>
+      <div className={styles.recommendationContainer}>
+        <div className={styles.title}>More from Reflection</div>
+        <div className={styles.articlesContainer}>
+          <div className={styles.recommendationAuthorContainer}>
+            <div className={styles.recommendationAuthorProfileContainer}>
+              <Image src={avatar} alt="logo" height={100} width={100} />
+            </div>
+            <div className={styles.recommendationAuthorName}>Arin Paliwal</div>
+          </div>
         </div>
       </div>
     </div>
