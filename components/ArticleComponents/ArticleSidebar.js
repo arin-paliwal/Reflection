@@ -25,7 +25,7 @@ const styles = {
   recommendationThumbnail: "object-cover",
   articlecontentWrapper:
     "flex items-center justify-center cursor-pointer my-[1rem]",
-  articleContent: "flex flex-4",
+  articleContent: "flex-4",
 };
 const ArticleSidebar = () => {
   return (
@@ -63,19 +63,20 @@ const ArticleSidebar = () => {
                   Arin Paliwal
                 </div>
               </div>
+              <div className={styles.recommendationTitle}>
+                How to create a Issues & PR in GitHub.
+              </div>
             </div>
-          </div>
-          <div className={styles.recommendationTitle}>
-            How to create a Issues & PR in GitHub.
-          </div>
-          <div className={styles.recommendationThumbnailcontainer}>
-            <Image
-              className={styles.recommendationThumbnail}
-              src={avatar}
-              alt="thumbnail"
-              height={100}
-              width={100}
-            />
+
+            <div className={styles.recommendationThumbnailcontainer}>
+              <Image
+                className={styles.recommendationThumbnail}
+                src={avatar}
+                alt="thumbnail"
+                height={100}
+                width={100}
+              />
+            </div>
           </div>
         </div>
       </div>
