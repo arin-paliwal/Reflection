@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../../../assets/images/logo.png";
+import logo from "../assets/images/logo.png";
 const styles = {
   logoContainer: "flex items-center flex-start",
   wrapper: "flex justify-center gap-10 p-5 bg-[#A4BC92]",
   content: "max-w-7xl flex flex-1 justify-between gap-10",
   logo: "cursor-pointer object-contain",
   bannerNav: "flex cursor-pointer items-center space-x-5",
-  accentedButton:'bg-black text-white py-2 px-4 rounded-full'
+  accentedButton: "bg-black text-white py-2 px-4 rounded-full",
 };
 const navHead = () => {
   return (
@@ -24,7 +24,7 @@ const navHead = () => {
             />
           </div>
           <div className={styles.bannerNav}>
-          <div>About Us</div>
+            <div>About Us</div>
             <div>Membership</div>
             <div>Dive in</div>
             <div className={styles.accentedButton}>Get Started</div>

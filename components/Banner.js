@@ -1,6 +1,5 @@
 import Image from "next/image";
-import "../styles/spin.css";
-import banner from "../../../assets/images/banner.png";
+import banner from "../assets/images/banner.png";
 import React from "react";
 const styles = {
   wrapper: "h-[350px]  flex items-center justify-center bg-[#A4BC92]",
