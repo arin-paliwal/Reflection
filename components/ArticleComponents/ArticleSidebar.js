@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import avatar from "../../assets/images/avatar.png";
 import search from "../../assets/images/search.png";
+import reccthumb from "../../assets/images/reccthumb.png";
 const styles = {
   wrapper: "h-screen min-w-[10rem] max-w-[30rem] flex-[1.2] p-[2rem]",
   accentedButton:
@@ -27,7 +28,7 @@ const styles = {
     "flex items-center justify-center cursor-pointer my-[1rem]",
   articleContent: "flex-4",
 };
-const ArticleSidebar = () => {
+const ArticleSidebar = ({ author }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.accentedButton}>Get Unlimited Access</div>
@@ -71,7 +72,7 @@ const ArticleSidebar = () => {
             <div className={styles.recommendationThumbnailcontainer}>
               <Image
                 className={styles.recommendationThumbnail}
-                src={avatar}
+                src={reccthumb}
                 alt="thumbnail"
                 height={100}
                 width={100}
