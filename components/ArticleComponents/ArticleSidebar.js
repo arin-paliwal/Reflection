@@ -20,6 +20,12 @@ const styles = {
   recommendationAuthorName: "text-sm",
   recommendationAuthorContainer: "flex items-center gap-[.6rem]",
   recommendationTitle: "font-bold",
+  recommendationThumbnailcontainer:
+    "flex flex-1 items-center justify-center h-[4rem] w-[4rem]",
+  recommendationThumbnail: "object-cover",
+  articlecontentWrapper:
+    "flex items-center justify-center cursor-pointer my-[1rem]",
+  articleContent: "flex flex-4",
 };
 const ArticleSidebar = () => {
   return (
@@ -47,14 +53,29 @@ const ArticleSidebar = () => {
       <div className={styles.recommendationContainer}>
         <div className={styles.title}>More from Reflection</div>
         <div className={styles.articlesContainer}>
-          <div className={styles.recommendationAuthorContainer}>
-            <div className={styles.recommendationAuthorProfileContainer}>
-              <Image src={avatar} alt="logo" height={100} width={100} />
+          <div className={styles.articlecontentWrapper}>
+            <div className={styles.articleContent}>
+              <div className={styles.recommendationAuthorContainer}>
+                <div className={styles.recommendationAuthorProfileContainer}>
+                  <Image src={avatar} alt="logo" height={100} width={100} />
+                </div>
+                <div className={styles.recommendationAuthorName}>
+                  Arin Paliwal
+                </div>
+              </div>
             </div>
-            <div className={styles.recommendationAuthorName}>Arin Paliwal</div>
           </div>
           <div className={styles.recommendationTitle}>
             How to create a Issues & PR in GitHub.
+          </div>
+          <div className={styles.recommendationThumbnailcontainer}>
+            <Image
+              className={styles.recommendationThumbnail}
+              src={avatar}
+              alt="thumbnail"
+              height={100}
+              width={100}
+            />
           </div>
         </div>
       </div>
