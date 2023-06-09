@@ -28,6 +28,7 @@ const styles = {
   articlecontentWrapper:
     "flex items-center justify-center cursor-pointer my-[1rem]",
   articleContent: "flex-4",
+  title: "font-bold text-[#A4BC92]",
 };
 const ArticleSidebar = ({ author }) => {
   return (
