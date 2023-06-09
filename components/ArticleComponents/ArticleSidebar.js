@@ -72,7 +72,7 @@ const ArticleSidebar = ({ author }) => {
                 </div>
               </div>
               <div className={styles.recommendationTitle}>
-                How to create a Issues & PR in GitHub.
+                How to use GitHub in efficient way.
               </div>
             </div>
 
