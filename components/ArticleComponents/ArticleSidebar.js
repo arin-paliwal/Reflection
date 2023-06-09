@@ -69,7 +69,7 @@ const ArticleSidebar = ({ author }) => {
                   <h1>Arin Paliwal</h1>
                 </div>
                 <div className={styles.recommendationAuthorDetails}>
-                  <h1>3 min read ● Rating 94%</h1>
+                  <h1>3 min read ● 140↑ 8↓</h1>
                 </div>
               </div>
               <div className={styles.recommendationTitle}>
