@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import Image from "next/image";
 import avatar from "../../assets/images/avatar.png";
@@ -59,34 +60,39 @@ const ArticleSidebar = ({ author }) => {
       <div className={styles.recommendationContainer}>
         <div className={styles.title}>More from Reflection</div>
         <div className={styles.articlesContainer}>
-          <div className={styles.articlecontentWrapper}>
-            <div className={styles.articleContent}>
-              <div className={styles.recommendationAuthorContainer}>
-                <div className={styles.recommendationAuthorProfileContainer}>
-                  <Image src={avatar} alt="logo" height={100} width={100} />
+          {recommendedPosts.map((post) => (
+            <div className={styles.articlecontentWrapper}>
+              <div className={styles.articleContent}>
+                <div className={styles.recommendationAuthorContainer}>
+                  <div className={styles.recommendationAuthorProfileContainer}>
+                    <Image
+                      src={post.author.image}
+                      alt="logo"
+                      height={100}
+                      width={100}
+                    />
+                  </div>
+                  <div className={styles.recommendationAuthorName}>
+                    <h1>{post.author.name}</h1>
+                  </div>
+                  <div className={styles.recommendationAuthorDetails}>
+                    <h1>3 min read ● 140↑ 8↓</h1>
+                  </div>
                 </div>
-                <div className={styles.recommendationAuthorName}>
-                  <h1>Arin Paliwal</h1>
-                </div>
-                <div className={styles.recommendationAuthorDetails}>
-                  <h1>3 min read ● 140↑ 8↓</h1>
-                </div>
+                <div className={styles.recommendationTitle}>{post.title}</div>
               </div>
-              <div className={styles.recommendationTitle}>
-                How to use GitHub in efficient way.
-              </div>
-            </div>
 
-            <div className={styles.recommendationThumbnailcontainer}>
-              <Image
-                className={styles.recommendationThumbnail}
-                src={reccthumb}
-                alt="thumbnail"
-                height={100}
-                width={100}
-              />
+              <div className={styles.recommendationThumbnailcontainer}>
+                <Image
+                  className={styles.recommendationThumbnail}
+                  src={post.image}
+                  alt="thumbnail"
+                  height={100}
+                  width={100}
+                />
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -94,3 +100,29 @@ const ArticleSidebar = ({ author }) => {
 };
 
 export default ArticleSidebar;
+const recommendedPosts = [
+  {
+    title: "What features are new in VS Code?",
+    image: reccthumb,
+    author: {
+      name: "Atul Paliwal",
+      image: avatar,
+    },
+  },
+  {
+    title: "NextJs, New Update",
+    image: reccthumb,
+    author: {
+      name: "Shalini Paliwal",
+      image: avatar,
+    },
+  },
+  {
+    title: "How to enroll in Microsoft Insider",
+    image: reccthumb,
+    author: {
+      name: "Arin Paliwal",
+      image: avatar,
+    },
+  },
+];
