@@ -19,6 +19,7 @@ const styles = {
   recommendationAuthorProfileContainer:
     "rounded-full overflow-hidden h-[1.4rem] w-[1.4rem]",
   recommendationAuthorName: "text-sm",
+  recommendationAuthorDetails: "text-sm text-[#787878]",
   recommendationAuthorContainer: "flex items-center gap-[.6rem]",
   recommendationTitle: "font-bold",
   recommendationThumbnailcontainer:
@@ -31,7 +32,7 @@ const styles = {
 const ArticleSidebar = ({ author }) => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.accentedButton}>Get Unlimited Access</div>
+      <div className={styles.accentedButton}>Get Reflection Membership</div>
       <div className={styles.searchBar}>
         <Image src={search} alt="search-icon" width={20} height={20} />
         <input
@@ -45,10 +46,13 @@ const ArticleSidebar = ({ author }) => {
           <Image src={avatar} alt="profileImage" width={100} height={100} />
         </div>
         <div className={styles.authorName}>Arin Paliwal</div>
-        <div className={styles.authorFollowers}>20K Followers</div>
+        <div className={styles.authorFollowers}>
+          20K Followers ● Technology & Resources
+        </div>
         <div className={styles.authorActions}>
           <button className={styles.actionButton}>Follow</button>
           <button className={styles.actionButton}>All Blogs</button>
+          <button className={styles.actionButton}>About Creator</button>
         </div>
       </div>
       <div className={styles.recommendationContainer}>
@@ -61,7 +65,10 @@ const ArticleSidebar = ({ author }) => {
                   <Image src={avatar} alt="logo" height={100} width={100} />
                 </div>
                 <div className={styles.recommendationAuthorName}>
-                  Arin Paliwal
+                  <h1>Arin Paliwal</h1>
+                </div>
+                <div className={styles.recommendationAuthorDetails}>
+                  <h1>3 min read ● Rating 94%</h1>
                 </div>
               </div>
               <div className={styles.recommendationTitle}>
