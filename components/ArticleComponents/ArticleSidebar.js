@@ -60,8 +60,8 @@ const ArticleSidebar = ({ author }) => {
       <div className={styles.recommendationContainer}>
         <div className={styles.title}>More from Reflection</div>
         <div className={styles.articlesContainer}>
-          {recommendedPosts.map((post) => (
-            <div className={styles.articlecontentWrapper}>
+          {recommendedPosts.map((post, index) => (
+            <div className={styles.articlecontentWrapper} key={index}>
               <div className={styles.articleContent}>
                 <div className={styles.recommendationAuthorContainer}>
                   <div className={styles.recommendationAuthorProfileContainer}>

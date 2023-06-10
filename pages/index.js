@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
 import Cards from "@/components/Cards";
+import { useContext } from "react";
+import { ReflectionContext } from "@/context/ReflectionContext";
 import { Archivo } from "next/font/google";
 const archivo = Archivo({ subsets: ["latin"] });
 const styles = {
@@ -10,6 +12,8 @@ const styles = {
   wrapper: "mx-auto",
 };
 export default function Home() {
+  const { Posts } = useContext(ReflectionContext);
+  console.log(Posts);
   return (
     <main className={archivo.className}>
       <div className={styles.wrapper}>
@@ -18,9 +22,9 @@ export default function Home() {
         <div className={styles.main}>
           <div className={styles.container}>
             <div className={styles.cards}>
-              <Cards />
-              <Cards />
-              <Cards />
+              {Posts.map((post) => (
+                <Cards post={post} key={post.id} />
+              ))}
             </div>
           </div>
         </div>

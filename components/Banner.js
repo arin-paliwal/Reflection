@@ -17,7 +17,7 @@ const Banner = () => {
         </div>
         <div className="flex-1"></div>
         <Image
-          className="h-[200px] object-contain flex-1 md:inline-flex animate-spin-slow"
+          className="h-[200px] object-contain flex-1 md:inline-flex "
           src={banner}
           alt="banner"
         />
@@ -26,3 +26,4 @@ const Banner = () => {
   );
 };
 export default Banner;
+// animate-spin-slow

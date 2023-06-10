@@ -18,9 +18,9 @@ const styles = {
   category: "bg-[#000] p-2 text-white rounded-full",
   bookmark: "cursor-pointer",
 };
-const Cards = () => {
+const Cards = ({ post }) => {
   return (
-    <Link href={`/post/123`}>
+    <Link href={`/post/${post.id}`}>
       <div className={styles.wrapper}>
         <div className={styles.postDetails}>
           <div className={styles.authorContainer}>
