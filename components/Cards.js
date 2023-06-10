@@ -3,6 +3,9 @@ import logo from "../assets/images/logo.png";
 import React from "react";
 import bookmark from "../assets/images/bookmark.gif";
 import Link from "next/link";
+import { db } from "@/firebase";
+import { getDoc, doc } from "firebase/firestore";
+import { useState, useEffect } from "react";
 const styles = {
   authorContainer: "flex gap-5 ",
   authorImageContainer:
@@ -17,8 +20,16 @@ const styles = {
   articleDetails: "my-2 text-[.8rem]",
   category: "bg-[#000] p-2 text-white rounded-full",
   bookmark: "cursor-pointer",
+  thumbnail: "flex-1 object-contain",
 };
 const Cards = ({ post }) => {
+  const [authorData, setAuthorData] = useState(null);
+  useEffect(() => {
+    const getAuthorData = async () => {
+      setAuthorData((await getDoc(doc(db, "Users", post.data.author))).data());
+    };
+    getAuthorData();
+  }, [post]);
   return (
     <Link href={`/post/${post.id}`}>
       <div className={styles.wrapper}>
@@ -33,18 +44,22 @@ const Cards = ({ post }) => {
                 height={40}
               />
             </div>
-            <div className={styles.authorName}>Arin Paliwal</div>
+            <div className={styles.authorName}>{authorData?.name}</div>
           </div>
-          <h1 className={styles.title}>
-            The technologies that will lead you to a good package.
-          </h1>
-          <div className={styles.briefing}>
-            The leading market consists of WEB3 and Machine Learning.
-          </div>
+          <h1 className={styles.title}>{post.data.title}</h1>
+          <div className={styles.briefing}>{post.data.brief}</div>
           <div className={styles.detailsContainer}>
             <div className={styles.articleDetails}>
-              20 September &nbsp;● 5 min &nbsp;●{" "}
-              <span className={styles.category}>skills enhancement</span>
+              {/* 20 September  */}
+              {new Date(post.data.postedOn).toLocaleString("en-US", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+              &nbsp;●&nbsp;
+              {/* 5 min  */}
+              {post.data.postLength} min &nbsp;●{" "}
+              <span className={styles.category}>{post.data.category}</span>
             </div>
             <span className={styles.bookmark}>
               <Image src={bookmark} alt="bookmark" width={50} height={50} />
@@ -52,7 +67,12 @@ const Cards = ({ post }) => {
           </div>
         </div>
         <div className={styles.thumbnail}>
-          <Image alt="thumbnail" src={logo} height={100} width={100} />
+          <Image
+            alt="thumbnail"
+            src={`https://res.cloudinary.com/demo/image/fetch/${post.data.bannerImage}`}
+            height={100}
+            width={100}
+          />
         </div>
       </div>
     </Link>
