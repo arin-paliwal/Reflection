@@ -27,7 +27,7 @@ const Cards = ({ post }) => {
   useEffect(() => {
     const getAuthorData = async () => {
       console;
-      console.log(((await getDoc(doc(db, "Users", post.data.author))).data()))
+      // console.log(((await getDoc(doc(db, "Users", post.data.author))).data()))
       setAuthorData((await getDoc(doc(db, "Users", post.data.author))).data());
     };
     getAuthorData();

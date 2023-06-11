@@ -17,7 +17,8 @@ const Post = () => {
       return;
     }
     setPost(Posts.find((post) => post.id === router.query.slug));
-    console.log(Users.find((user) => user.id === post?.data?.author));
+
+    setAuthor(Users.find((user) => user.id === post?.data?.author));
   }, [Posts, Users, post?.data?.author, router.query.slug]);
   return (
     <div className={styles.wrapper}>
