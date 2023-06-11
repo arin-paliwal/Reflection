@@ -26,10 +26,13 @@ const Cards = ({ post }) => {
   const [authorData, setAuthorData] = useState(null);
   useEffect(() => {
     const getAuthorData = async () => {
+      console;
+      console.log(((await getDoc(doc(db, "Users", post.data.author))).data()))
       setAuthorData((await getDoc(doc(db, "Users", post.data.author))).data());
     };
     getAuthorData();
-  }, [post]);
+  }, []);
+  // console.log(post.data.author);
   return (
     <Link href={`/post/${post.id}`}>
       <div className={styles.wrapper}>
@@ -37,7 +40,7 @@ const Cards = ({ post }) => {
           <div className={styles.authorContainer}>
             <div className={styles.authorImageContainer}>
               <Image
-                src={logo}
+                src={`https://res.cloudinary.com/demo/image/fetch/${authorData?.imageUrl}`}
                 alt="logo"
                 className={styles.authorImage}
                 width={40}

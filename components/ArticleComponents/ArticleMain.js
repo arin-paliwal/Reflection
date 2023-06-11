@@ -27,7 +27,7 @@ const styles = {
   subTitle: "text-[1.2rem] text-[#787878]",
   article: "font-medium",
 };
-const ArticleMain = () => {
+const ArticleMain = ({ post, author }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>

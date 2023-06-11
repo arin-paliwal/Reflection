@@ -13,7 +13,6 @@ const styles = {
 };
 export default function Home() {
   const { Posts } = useContext(ReflectionContext);
-  console.log(Posts);
   return (
     <main className={archivo.className}>
       <div className={styles.wrapper}>
