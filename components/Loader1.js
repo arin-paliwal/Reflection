@@ -28,11 +28,14 @@ const Loader = () => {
         <div className="loader">
           <p>loading</p>
           <div className="words">
-            <span className="word">users</span>
+            {/* <span className="word">users</span>
             <span className="word">blogs</span>
-            <span className="word">data</span>
+            <span className="word">data</span> */}
             <span className="word">curiosity</span>
             <span className="word">articles</span>
+            <span className="word">curiosity</span>
+            <span className="word">articles</span>
+            <span className="word">curiosity</span>
           </div>
         </div>
       </div>

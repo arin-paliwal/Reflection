@@ -36,7 +36,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
 import Cards from "@/components/Cards";
-import Loader from "@/components/Loader";
+import Loader from "@/components/Loader1";
 import { ReflectionContext } from "@/context/ReflectionContext";
 import { Archivo } from "next/font/google";
 
@@ -56,7 +56,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
 

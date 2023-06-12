@@ -4,7 +4,7 @@ import ReadersNav from "@/components/ArticleComponents/ReadersNav";
 import { ReflectionContext } from "@/context/ReflectionContext";
 import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Loader from "./../../components/Loader";
+import Loader from "../../components/Loader2";
 const styles = {
   wrapper: "flex",
 };
@@ -14,7 +14,7 @@ const Post = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
   const { Posts, Users } = useContext(ReflectionContext);
