@@ -1,11 +1,15 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { createContext } from "react";
-import { db } from "@/firebase";
+import { auth, db, provider } from "@/firebase";
 import { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 const ReflectionContext = createContext();
 const Provider = ({ children }) => {
   const [Users, setUsers] = useState([]);
   const [Posts, setPosts] = useState([]);
+  const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
     // this function runs when there is a change in users each time it refreshes
     const getUsers = async () => {
@@ -48,8 +52,30 @@ const Provider = ({ children }) => {
     getPosts();
   }, []);
 
+  const addUserToFirebase = async (user) => {
+    const email = user.email;
+    const name = user.displayName;
+    const imageUrl = user.photoURL;
+    const followerCount = 1000;
+    console.log(user, email, name, imageUrl, followerCount);
+    await setDoc(doc(db, "Users", email), {
+      email: email,
+      followerCount: followerCount,
+      imageUrl: imageUrl,
+      name: name,
+    });
+  };
+  const handleUserAuthentication = async () => {
+    const userData = await signInWithPopup(auth, provider);
+    const user = userData.user;
+    setCurrentUser(user);
+    addUserToFirebase(user);
+  };
+
   return (
-    <ReflectionContext.Provider value={{ Posts, Users }}>
+    <ReflectionContext.Provider
+      value={{ Posts, Users, handleUserAuthentication, currentUser }}
+    >
       {children}
     </ReflectionContext.Provider>
   );
