@@ -1,11 +1,13 @@
 import Image from "next/image";
 import logo from "../assets/images/logo.png";
-import React from "react";
+import React, { useContext } from "react";
 import bookmark from "../assets/images/bookmark.gif";
 import Link from "next/link";
 import { db } from "@/firebase";
 import { getDoc, doc } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import { ReflectionContext } from "@/context/ReflectionContext";
+import Standard from "./Standard";
 const styles = {
   authorContainer: "flex gap-5 ",
   authorImageContainer:
@@ -23,6 +25,7 @@ const styles = {
   thumbnail: "flex-1 object-contain",
 };
 const Cards = ({ post }) => {
+  const { currentUser } = useContext(ReflectionContext);
   const [authorData, setAuthorData] = useState(null);
   useEffect(() => {
     const getAuthorData = async () => {
@@ -34,51 +37,57 @@ const Cards = ({ post }) => {
   }, [post.data.author]);
   // console.log(post.data.author);
   return (
-    <Link href={`/post/${post.id}`}>
-      <div className={styles.wrapper}>
-        <div className={styles.postDetails}>
-          <div className={styles.authorContainer}>
-            <div className={styles.authorImageContainer}>
+    <>
+      {currentUser ? (
+        <Link href={`/post/${post.id}`}>
+          <div className={styles.wrapper}>
+            <div className={styles.postDetails}>
+              <div className={styles.authorContainer}>
+                <div className={styles.authorImageContainer}>
+                  <Image
+                    src={`https://res.cloudinary.com/demo/image/fetch/${authorData?.imageUrl}`}
+                    alt="logo"
+                    className={styles.authorImage}
+                    width={40}
+                    height={40}
+                  />
+                </div>
+                <div className={styles.authorName}>{authorData?.name}</div>
+              </div>
+              <h1 className={styles.title}>{post.data.title}</h1>
+              <div className={styles.briefing}>{post.data.brief}</div>
+              <div className={styles.detailsContainer}>
+                <div className={styles.articleDetails}>
+                  {/* 20 September  */}
+                  {new Date(post.data.postedOn).toLocaleString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                  &nbsp;●&nbsp;
+                  {/* 5 min  */}
+                  {post.data.postLength} min &nbsp;●{" "}
+                  <span className={styles.category}>{post.data.category}</span>
+                </div>
+                <span className={styles.bookmark}>
+                  <Image src={bookmark} alt="bookmark" width={50} height={50} />
+                </span>
+              </div>
+            </div>
+            <div className={styles.thumbnail}>
               <Image
-                src={`https://res.cloudinary.com/demo/image/fetch/${authorData?.imageUrl}`}
-                alt="logo"
-                className={styles.authorImage}
-                width={40}
-                height={40}
+                alt="thumbnail"
+                src={`https://res.cloudinary.com/demo/image/fetch/${post.data.bannerImage}`}
+                height={100}
+                width={100}
               />
             </div>
-            <div className={styles.authorName}>{authorData?.name}</div>
           </div>
-          <h1 className={styles.title}>{post.data.title}</h1>
-          <div className={styles.briefing}>{post.data.brief}</div>
-          <div className={styles.detailsContainer}>
-            <div className={styles.articleDetails}>
-              {/* 20 September  */}
-              {new Date(post.data.postedOn).toLocaleString("en-US", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-              &nbsp;●&nbsp;
-              {/* 5 min  */}
-              {post.data.postLength} min &nbsp;●{" "}
-              <span className={styles.category}>{post.data.category}</span>
-            </div>
-            <span className={styles.bookmark}>
-              <Image src={bookmark} alt="bookmark" width={50} height={50} />
-            </span>
-          </div>
-        </div>
-        <div className={styles.thumbnail}>
-          <Image
-            alt="thumbnail"
-            src={`https://res.cloudinary.com/demo/image/fetch/${post.data.bannerImage}`}
-            height={100}
-            width={100}
-          />
-        </div>
-      </div>
-    </Link>
+        </Link>
+      ) : (
+        <Standard />
+      )}
+    </>
   );
 };
 
