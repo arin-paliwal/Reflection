@@ -13,7 +13,9 @@ const styles = {
 };
 const navHead = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { handleUserAuthentication } = useContext(ReflectionContext);
+  const { currentUser, handleUserAuthentication } =
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useContext(ReflectionContext);
   return (
     <div>
       <div className={styles.wrapper}>
@@ -27,12 +29,21 @@ const navHead = () => {
               width={155}
             />
           </div>
-          <div className={styles.bannerNav}>
-            <div>About Us</div>
-            <div>Membership</div>
-            <div onClick={handleUserAuthentication}>Authentication</div>
-            <div className={styles.accentedButton}>Get Started</div>
-          </div>
+          {currentUser ? (
+            <div className={styles.bannerNav}>
+              <div>About Us</div>
+              <div>Membership</div>
+              <div onClick={handleUserAuthentication}>Authentication</div>
+              <div className={styles.accentedButton}>Get Started</div>
+            </div>
+          ) : (
+            <div className={styles.bannerNav}>
+              <div>About Us</div>
+              <div>Membership</div>
+              <div className={styles.accentedButton}>Write</div>
+              <div className={styles.accentedButton}>Become Member</div>
+            </div>
+          )}
         </div>
       </div>
     </div>
