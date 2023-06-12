@@ -31,7 +31,7 @@ const Cards = ({ post }) => {
       setAuthorData((await getDoc(doc(db, "Users", post.data.author))).data());
     };
     getAuthorData();
-  }, []);
+  }, [post.data.author]);
   // console.log(post.data.author);
   return (
     <Link href={`/post/${post.id}`}>
