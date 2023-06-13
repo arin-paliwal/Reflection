@@ -1,16 +1,22 @@
 import { ReflectionContext } from "@/context/ReflectionContext";
 import { db } from "@/firebase";
+import logo from "../assets/images/logo.png";
+import Image from "next/image";
+import titleImg from "../assets/images/title.svg";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import React, { useContext } from "react";
 import { useState } from "react";
 const styles = {
-  wrapper:
-    "w-[70rem] h-screen flex flex-col justify-start items-center gap-[1rem] p-[1rem] overflow-scroll",
-  title: "my-[2rem] font-bold text-3xl",
-  field: "w-full flex justify-between gap-[1rem]",
-  fieldTitle: "flex-1",
-  inputContainer: "flex-5 h-min border-1 border-[#787878]",
+  wrapper: "h-screen w-screen p-10",
+  logoContainer: "object-contain w-[200px] mr-10",
+  iconContainer: "object-cover w-[70px] items-center justify-center flex",
+  header: "flex flex-row",
+  firstPart: "flex flex-col px-1 py-2 rounded-[50px]",
+  numering: "text-[#787878] text-xl",
+  logo: "mr-20",
+  titleImg: "text-[#787878]",
   input: "w-full border-0 outline-none bg-transparent",
+  formContainer:"flex"
 };
 
 const PostForm = () => {
@@ -35,78 +41,15 @@ const PostForm = () => {
     });
   };
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.title}>Write a new Article</div>
-      <div className={styles.field}>
-        <span className={styles.fieldTitle}>Title</span>
-        <span className={styles.inputContainer}>
-          <input
-            className={styles.input}
-            placeholder="arin"
-            type="text"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-        </span>
+    <>
+      <div className={styles.wrapper}>
+        <div className={styles.header}>
+          <div className={styles.logoContainer}>
+            <Image className={styles.logo} src={logo} alt="logo" />
+          </div>
+          </div>
       </div>
-      <div className={styles.field}>
-        <span className={styles.fieldTitle}>Brief</span>
-        <span className={styles.inputContainer}>
-          <input
-            className={styles.input}
-            type="text"
-            value={brief}
-            onChange={(event) => setBrief(event.target.value)}
-          />
-        </span>
-      </div>
-      <div className={styles.field}>
-        <span className={styles.fieldTitle}>Banner Image URL</span>
-        <span className={styles.inputContainer}>
-          <input
-            className={styles.input}
-            type="text"
-            value={bannerImage}
-            onChange={(event) => setBannerImage(event.target.value)}
-          />
-        </span>
-      </div>
-      <div className={styles.field}>
-        <span className={styles.fieldTitle}>Category</span>
-        <span className={styles.inputContainer}>
-          <input
-            className={styles.input}
-            type="text"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          />
-        </span>
-      </div>
-      <div className={styles.field}>
-        <span className={styles.fieldTitle}>Estimated Read Length</span>
-        <span className={styles.inputContainer}>
-          <input
-            className={styles.input}
-            type="text"
-            value={readTime}
-            onChange={(event) => setReadTime(event.target.value)}
-          />
-        </span>
-      </div>
-      <div className={styles.field}>
-        <span className={styles.fieldTitle}>Article</span>
-        <span className={styles.inputContainer}>
-          <input
-            className={styles.input}
-            type="text"
-            rows={12}
-            value={article}
-            onChange={(event) => setArticle(event.target.value)}
-          />
-        </span>
-      </div>
-      <button onClick={addPostToFirebase}>Submit</button>
-    </div>
+    </>
   );
 };
 

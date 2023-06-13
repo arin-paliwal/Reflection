@@ -7,20 +7,20 @@ import tnc from "../../assets/images/tnc.gif";
 import Image from "next/image";
 const styles = {
   logoContainer: "flex items-center flex-start",
-  navbarTnc: "flex justify-center gap-10 p-5 bg-[#A4BC92]",
+  navbarTnc: "flex justify-center gap-10 p-5 bg-[#A4BC92] ",
   content: "max-w-7xl flex flex-1 justify-between gap-10",
   logo: "cursor-pointer object-contain",
   bannerNav: "flex cursor-pointer items-center space-x-5",
   accentedButton: "bg-black text-white py-2 px-4 rounded-full",
   tandcwrapper: "p-8 flex flex-row",
-  rightSide: "flex items-center justify-center fixed",
-  tncImage: "h-[600px] w-[600px] flex flex-start",
+  rightSide: "flex flex-col justify-center fixed",
+  tncImage: "h-[600px] w-[600px] mt-[-150px] flex flex-start",
   heading:
     "space-between text-5xl text-[#A4BC92] p-5 flex items-center justify-center",
   tacContent: "max-w-3xl text-xl leading-9 justify-between",
   contenttac: "text-[#787878]",
   headingContent: "text-black font-bold",
-  rightContainer:"flex flex-row",
+  rightContainer:"flex flex-col",
   individual:"bg-[#f2f2f2] p-8 rounded-[50px] gap-[2rem]",
   tncPage:"",
 };
@@ -51,12 +51,12 @@ const TermsConditions = () => {
       <div className={styles.tandcwrapper}>
         <div className={styles.leftSide}>
           <div className={styles.tacContent}>
-            <div className={styles.heading}>
+            {/* <div className={styles.heading}>
               <h1>
                 Terms & <br></br>
                 Conditions
               </h1>
-            </div>
+            </div> */}
             <div className={styles.contenttac}>
               <span className="text-black flex items-center justify-center mb-[1rem]">
                 Terms and Conditions for Reflection Blog Collection Web
@@ -255,13 +255,18 @@ const TermsConditions = () => {
                   purpose, or non-infringement.
                 </div>
                 <br />
-
               </span>
             </div>
           </div>
         </div>
         <div className={styles.rightContainer}>
           <div className={styles.rightSide}>
+            <div className={styles.heading}>
+              <h1>
+                Terms & <br></br>
+                Conditions
+              </h1>
+            </div>
             <Image className={styles.tncImage} src={tnc} alt="tncLogo" />
           </div>
         </div>
