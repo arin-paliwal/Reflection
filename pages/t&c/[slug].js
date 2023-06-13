@@ -22,7 +22,6 @@ const styles = {
   rightContainer:"flex flex-row",
   individual:"bg-[#f2f2f2] p-8 rounded-[50px] gap-[2rem]",
   tncPage:"",
-  heading:"flex items-center justify-center fixed"
 };
 const TermsConditions = () => {
   return (
