@@ -184,7 +184,7 @@ const TermsConditions = () => {
                         6.1 Violate any applicable laws or regulations:
                       </strong>{" "}
                       You must not violate any applicable laws or regulations
-                      while using the Web Application.
+                      while using the Application.
                     </li>
                     <li>
                       <strong>
