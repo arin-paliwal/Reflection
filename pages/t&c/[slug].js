@@ -19,7 +19,7 @@ const styles = {
   tacContent: "max-w-3xl text-xl leading-9 justify-between",
   contenttac: "text-[#787878]",
   headingContent: "text-black font-bold",
-  rightContainer:"flex"
+  rightContainer:"flex flex-row"
 };
 const TermsConditions = () => {
   return (
@@ -172,7 +172,6 @@ const TermsConditions = () => {
                   </ol>
                 </span>
                 <br />
-                <br />
                 <span className={styles.headingContent}>
                   6. Prohibited Conduct :&nbsp;
                 </span>
@@ -246,10 +245,6 @@ const TermsConditions = () => {
           <div className={styles.rightSide}>
             <Image className={styles.tncImage} src={tnc} alt="tncLogo" />
           </div>
-        </div>
-
-        <div className={styles.actionButton}>
-          <button>Contact Us</button>
         </div>
       </div>
     </div>
