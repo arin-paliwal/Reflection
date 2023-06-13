@@ -108,7 +108,7 @@
   height: 100%;
   padding-left: 6px;
   color: #A4BC92;
-  animation: cycle-words 3.5s infinite;
+  animation: cycle-words 3s infinite;
 }
 
 @keyframes cycle-words {
