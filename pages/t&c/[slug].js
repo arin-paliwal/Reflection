@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import logo from "../../assets/images/logo.png";
