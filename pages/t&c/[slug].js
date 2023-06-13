@@ -6,25 +6,28 @@ import tnc from "../../assets/images/tnc.gif";
 import Image from "next/image";
 const styles = {
   logoContainer: "flex items-center flex-start",
-  wrapper: "flex justify-center gap-10 p-5 bg-[#A4BC92]",
+  navbarTnc: "flex justify-center gap-10 p-5 bg-[#A4BC92]",
   content: "max-w-7xl flex flex-1 justify-between gap-10",
   logo: "cursor-pointer object-contain",
   bannerNav: "flex cursor-pointer items-center space-x-5",
   accentedButton: "bg-black text-white py-2 px-4 rounded-full",
   tandcwrapper: "p-8 flex flex-row",
-  rightSide: "flex items-center justify-center fixed  top-0 right-0",
+  rightSide: "flex items-center justify-center fixed",
   tncImage: "h-[600px] w-[600px] flex flex-start",
   heading:
     "space-between text-5xl text-[#A4BC92] p-5 flex items-center justify-center",
   tacContent: "max-w-3xl text-xl leading-9 justify-between",
   contenttac: "text-[#787878]",
   headingContent: "text-black font-bold",
-  rightContainer:"flex flex-row"
+  rightContainer:"flex flex-row",
+  individual:"bg-[#f2f2f2] p-8 rounded-[50px] gap-[2rem]",
+  tncPage:"",
+  heading:"flex items-center justify-center fixed"
 };
 const TermsConditions = () => {
   return (
-    <div>
-      <div className={styles.wrapper}>
+    <div className={styles.tncPage}>
+      <div className={styles.navbarTnc}>
         <div className={styles.content}>
           <Link href="/">
             <div className={styles.logoContainer}>
@@ -66,177 +69,193 @@ const TermsConditions = () => {
               </span>
               <br></br>
               <hr className="h-px my-8 bg-gray-700 border-0 dark:bg-gray-700" />
-              <span className="">
+              <span className={styles.allTnc}>
                 These Terms and Conditions govern your access to and use of the
                 Reflection website . By using the Website, you agree to be bound
                 by these Terms and Conditions.{" "}
                 <span className="underline">Please read them carefully.</span>
                 <br />
                 <br />
-                <span className={styles.headingContent}>
-                  1. Acceptance of Terms :{" "}
-                </span>
-                By accessing or using the Reflection Web Application, you
-                acknowledge that you have read, understood, and agree to be
-                bound by these Terms and Conditions, including any additional
-                guidelines and future modifications. If you do not agree to
-                these terms, you may not use the Web Application. <br />
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>
+                    1. Acceptance of Terms :{" "}
+                  </span>
+                  By accessing or using the Reflection Web Application, you
+                  acknowledge that you have read, understood, and agree to be
+                  bound by these Terms and Conditions, including any additional
+                  guidelines and future modifications. If you do not agree to
+                  these terms, you may not use the Web Application.
+                </div>
                 <br />
-                <span className={styles.headingContent}>
-                  2. User Eligibility :{" "}
-                </span>
-                You must be at least 13 years old to use the Reflection Web
-                Application. If you are under 18 years old, you must have
-                parental consent to use the Web Application. By using the Web
-                Application, you represent and warrant that you meet these
-                eligibility requirements. <br />
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>
+                    2. User Eligibility :{" "}
+                  </span>
+                  You must be at least 13 years old to use the Reflection Web
+                  Application. If you are under 18 years old, you must have
+                  parental consent to use the Web Application. By using the Web
+                  Application, you represent and warrant that you meet these
+                  eligibility requirements.
+                </div>
                 <br />
-                <span className={styles.headingContent}>3. User Accounts</span>
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>
+                    3. User Accounts
+                  </span>
+                  <br />
+                  <span>
+                    <ol>
+                      <li>
+                        <strong>3.1 Registration:</strong> To access certain
+                        features of the Web Application, you may need to create
+                        a user account. You agree to provide accurate and
+                        up-to-date information during the registration process
+                        and to keep your account credentials secure.
+                      </li>
+                      <li>
+                        <strong>3.2 Account Responsibility:</strong> You are
+                        solely responsible for all activities that occur under
+                        your account. You must immediately notify us of any
+                        unauthorized use or breach of security.
+                      </li>
+                      <li>
+                        <strong>3.3 Account Termination:</strong> We reserve the
+                        right to terminate or suspend your account, at our
+                        discretion and without prior notice, for any violation
+                        of these Terms and Conditions or for any other reason.
+                      </li>
+                    </ol>
+                  </span>
+                  <br />
+                </div>
                 <br />
-                <span>
-                  <ol>
-                    <li>
-                      <strong>3.1 Registration:</strong> To access certain
-                      features of the Web Application, you may need to create a
-                      user account. You agree to provide accurate and up-to-date
-                      information during the registration process and to keep
-                      your account credentials secure.
-                    </li>
-                    <li>
-                      <strong>3.2 Account Responsibility:</strong> You are
-                      solely responsible for all activities that occur under
-                      your account. You must immediately notify us of any
-                      unauthorized use or breach of security.
-                    </li>
-                    <li>
-                      <strong>3.3 Account Termination:</strong> We reserve the
-                      right to terminate or suspend your account, at our
-                      discretion and without prior notice, for any violation of
-                      these Terms and Conditions or for any other reason.
-                    </li>
-                  </ol>
-                </span>
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>4. User Content</span>{" "}
+                  <br />
+                  <span>
+                    <ol>
+                      <li>
+                        <strong>4.1 Ownership:</strong> By posting or submitting
+                        content on the Reflection Web Application (including
+                        blogs, comments, images, and any other materials), you
+                        retain ownership of your content. However, you grant us
+                        a non-exclusive, worldwide, royalty-free license to use,
+                        reproduce, distribute, modify, and publicly display your
+                        content within the Web Application.
+                      </li>
+                      <li>
+                        <strong>4.2 Responsibility:</strong> You are solely
+                        responsible for the content you post on the Web
+                        Application. You agree that your content will not
+                        violate any applicable laws or infringe upon the rights
+                        of others, including copyright, trademark, privacy, or
+                        publicity rights.
+                      </li>
+                      <li>
+                        <strong>4.3 Moderation:</strong> We reserve the right to
+                        moderate, edit, or remove any user content that violates
+                        these Terms and Conditions or for any other reason,
+                        without prior notice.
+                      </li>
+                    </ol>
+                  </span>
+                </div>
                 <br />
-                <span className={styles.headingContent}>
-                  4. User Content
-                </span>{" "}
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>
+                    5. Intellectual Property
+                  </span>
+                  <br />{" "}
+                  <span>
+                    <ol>
+                      <li>
+                        <strong>5.1 Web Application Ownership:</strong> The
+                        Reflection Web Application, including its design,
+                        features, and content, is owned by us or our licensors
+                        and is protected by copyright, trademark, and other
+                        intellectual property laws.
+                      </li>
+                      <li>
+                        <strong>5.2 User License:</strong> We grant you a
+                        limited, non-transferable, non-exclusive license to use
+                        the Web Application for personal, non-commercial
+                        purposes. You may not copy, modify, distribute, or
+                        create derivative works of the Web Application without
+                        our prior written consent.
+                      </li>
+                    </ol>
+                  </span>
+                </div>
                 <br />
-                <span>
-                  <ol>
-                    <li>
-                      <strong>4.1 Ownership:</strong> By posting or submitting
-                      content on the Reflection Web Application (including
-                      blogs, comments, images, and any other materials), you
-                      retain ownership of your content. However, you grant us a
-                      non-exclusive, worldwide, royalty-free license to use,
-                      reproduce, distribute, modify, and publicly display your
-                      content within the Web Application.
-                    </li>
-                    <li>
-                      <strong>4.2 Responsibility:</strong> You are solely
-                      responsible for the content you post on the Web
-                      Application. You agree that your content will not violate
-                      any applicable laws or infringe upon the rights of others,
-                      including copyright, trademark, privacy, or publicity
-                      rights.
-                    </li>
-                    <li>
-                      <strong>4.3 Moderation:</strong> We reserve the right to
-                      moderate, edit, or remove any user content that violates
-                      these Terms and Conditions or for any other reason,
-                      without prior notice.
-                    </li>
-                  </ol>
-                </span>
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>
+                    6. Prohibited Conduct :&nbsp;
+                  </span>
+                  When using the Reflection Web Application, you agree not to:
+                  <br />
+                  <span>
+                    <ol>
+                      <li>
+                        <strong>
+                          6.1 Violate any applicable laws or regulations:
+                        </strong>{" "}
+                        You must not violate any applicable laws or regulations
+                        while using the Application.
+                      </li>
+                      <li>
+                        <strong>
+                          6.2 Engage in any unauthorized access to the Web
+                          Application or its systems:
+                        </strong>{" "}
+                        You must not engage in any unauthorized access to the
+                        Web Application or its systems.
+                      </li>
+                      <li>
+                        <strong>
+                          6.3 Use the Web Application to transmit any harmful or
+                          malicious code or interfere with its proper
+                          functioning:
+                        </strong>{" "}
+                        You must not use the Web Application to transmit any
+                        harmful or malicious code or interfere with its proper
+                        functioning.
+                      </li>
+                      <li>
+                        <strong>
+                          6.4 Harass, threaten, or intimidate other users or
+                          engage in any form of hate speech or discriminatory
+                          behavior:
+                        </strong>{" "}
+                        You must not harass, threaten, or intimidate other users
+                        or engage in any form of hate speech or discriminatory
+                        behavior.
+                      </li>
+                      <li>
+                        <strong>
+                          6.5 Impersonate any person or entity or falsely
+                          represent your affiliation with any person or entity:
+                        </strong>{" "}
+                        You must not impersonate any person or entity or falsely
+                        represent your affiliation with any person or entity.
+                      </li>
+                    </ol>
+                  </span>
+                </div>
                 <br />
-                <span className={styles.headingContent}>
-                  5. Intellectual Property
-                </span>
-                <br />{" "}
-                <span>
-                  <ol>
-                    <li>
-                      <strong>5.1 Web Application Ownership:</strong> The
-                      Reflection Web Application, including its design,
-                      features, and content, is owned by us or our licensors and
-                      is protected by copyright, trademark, and other
-                      intellectual property laws.
-                    </li>
-                    <li>
-                      <strong>5.2 User License:</strong> We grant you a limited,
-                      non-transferable, non-exclusive license to use the Web
-                      Application for personal, non-commercial purposes. You may
-                      not copy, modify, distribute, or create derivative works
-                      of the Web Application without our prior written consent.
-                    </li>
-                  </ol>
-                </span>
+                <div className={styles.individual}>
+                  <span className={styles.headingContent}>
+                    7. Disclaimer of Warranties :{" "}
+                  </span>
+                  The Reflection Web Application is provided on an "as is" and
+                  "as available" basis. We make no warranties or
+                  representations, express or implied, regarding the Web
+                  Application's operation, availability, accuracy, or
+                  reliability. We disclaim all warranties, including any implied
+                  warranties of merchantability, fitness for a particular
+                  purpose, or non-infringement.
+                </div>
                 <br />
-                <span className={styles.headingContent}>
-                  6. Prohibited Conduct :&nbsp;
-                </span>
-                When using the Reflection Web Application, you agree not to:
-                <br />
-                <span>
-                  <ol>
-                    <li>
-                      <strong>
-                        6.1 Violate any applicable laws or regulations:
-                      </strong>{" "}
-                      You must not violate any applicable laws or regulations
-                      while using the Application.
-                    </li>
-                    <li>
-                      <strong>
-                        6.2 Engage in any unauthorized access to the Web
-                        Application or its systems:
-                      </strong>{" "}
-                      You must not engage in any unauthorized access to the Web
-                      Application or its systems.
-                    </li>
-                    <li>
-                      <strong>
-                        6.3 Use the Web Application to transmit any harmful or
-                        malicious code or interfere with its proper functioning:
-                      </strong>{" "}
-                      You must not use the Web Application to transmit any
-                      harmful or malicious code or interfere with its proper
-                      functioning.
-                    </li>
-                    <li>
-                      <strong>
-                        6.4 Harass, threaten, or intimidate other users or
-                        engage in any form of hate speech or discriminatory
-                        behavior:
-                      </strong>{" "}
-                      You must not harass, threaten, or intimidate other users
-                      or engage in any form of hate speech or discriminatory
-                      behavior.
-                    </li>
-                    <li>
-                      <strong>
-                        6.5 Impersonate any person or entity or falsely
-                        represent your affiliation with any person or entity:
-                      </strong>{" "}
-                      You must not impersonate any person or entity or falsely
-                      represent your affiliation with any person or entity.
-                    </li>
-                  </ol>
-                </span>
-                <br />
-                <span className={styles.headingContent}>
-                  7. Disclaimer of Warranties :{" "}
-                </span>
-                The Reflection Web Application is provided on an "as is" and "as
-                available" basis. We make no warranties or representations,
-                express or implied, regarding the Web Application's operation,
-                availability, accuracy, or reliability. We disclaim all
-                warranties, including any implied warranties of merchantability,
-                fitness for a particular purpose, or non-infringement. <br />
-                <br />
-                <span className={styles.headingContent}>
-                  8. Limitation of Liability
-                </span>
+
               </span>
             </div>
           </div>
