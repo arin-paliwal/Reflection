@@ -9,5 +9,4 @@ const UPIQR = () => {
     </div>
   )
 }
-
 export default UPIQR
