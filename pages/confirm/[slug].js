@@ -5,8 +5,8 @@ const styles={
 const UPIQR = () => {
   return (
     <div className={styles.wrapper}>
-        <h1>Hello</h1>
+      <div className={styles.heading}></div>
     </div>
-  )
+  );
 }
 export default UPIQR
