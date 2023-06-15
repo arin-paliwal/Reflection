@@ -1,12 +1,16 @@
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { createContext } from "react";
+import { signOut } from "firebase/auth";
 import { auth, db, provider } from "@/firebase";
 import { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
+import { useRouter } from "next/router";
 const ReflectionContext = createContext();
 const Provider = ({ children }) => {
+  const router=useRouter();
   const [Users, setUsers] = useState([]);
   const [Posts, setPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState();
@@ -51,6 +55,19 @@ const Provider = ({ children }) => {
     };
     getPosts();
   }, []);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser(user);
+      } else {
+        setCurrentUser(null);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const addUserToFirebase = async (user) => {
     const email = user.email;
@@ -71,10 +88,23 @@ const Provider = ({ children }) => {
     setCurrentUser(user);
     addUserToFirebase(user);
   };
+  const handleUserLogout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        router.push("/");
+        setCurrentUser(null);
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+  
 
   return (
     <ReflectionContext.Provider
-      value={{ Posts, Users, handleUserAuthentication, currentUser }}
+      value={{ Posts, Users, handleUserAuthentication, currentUser,handleUserLogout }}
     >
       {children}
     </ReflectionContext.Provider>

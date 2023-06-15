@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 const styles = {
-  wrapper: "p-5 flex justify-between mr-[2rem]",
+  wrapper: "p-9 flex items-center justify-between mr-[2rem]",
   leftSide: "max-w-2xl",
   heading: "text-4xl text-[#a4bc92]",
   leftContent: "text-[#787878] mt-[2.5rem] max-w-xl",

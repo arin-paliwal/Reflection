@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../assets/images/logo.png";
 import { ReflectionContext } from "@/context/ReflectionContext";
-import handleUserAuthentication from "../context/ReflectionContext";
 import Link from "next/link";
 import Modal from "react-modal";
 import { useRouter } from "next/router";
@@ -33,7 +32,7 @@ const styles = {
 };
 const Navbar = () => {
   const router = useRouter();
-  const { currentUser, handleUserAuthentication } =
+  const { currentUser, handleUserAuthentication,handleUserLogout } =
     useContext(ReflectionContext);
   console.log(currentUser);
   return (
@@ -64,6 +63,8 @@ const Navbar = () => {
               <Link href={`/?addNew=1`}>
                 <div className={styles.accentedButton}>Write Blog</div>
               </Link>
+              <div className={styles.accentedButton}
+              onClick={handleUserLogout}>Log Out</div>
             </div>
           ) : (
             <div className={styles.bannerNav}>

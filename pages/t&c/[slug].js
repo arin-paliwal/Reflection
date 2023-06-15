@@ -5,12 +5,13 @@ import logo from "../../assets/images/logo.png";
 import React from "react";
 import tnc from "../../assets/images/tnc.gif";
 import Image from "next/image";
-import handleUserAuthentication from "../../context/ReflectionContext"
 import Router, { useRouter } from "next/router";
+import { useContext } from "react";
+import { ReflectionContext } from "@/context/ReflectionContext";
 const styles = {
   logoContainer: "flex items-center flex-start",
   navbarTnc:
-    "fixed top-0 left-0 right-0 flex justify-center gap-10 p-4 bg-[#A4BC92] ",
+    "fixed top-0 left-0 right-0 bg-[#A4BC92] ",
   content: "max-w-7xl flex flex-1 justify-between gap-10",
   logo: "cursor-pointer object-contain",
   bannerNav: "flex cursor-pointer items-center space-x-5",
@@ -32,48 +33,22 @@ const styles = {
 };
 
 const TermsConditions = () => {
-  const router=useRouter();
-  const goTo=()=>{
-    router.push("/");
-  }
-  const authenticate = () => {
-    handleUserAuthentication
-    goTo()
-  };
-
+ const { handleUserAuthentication,currentUser } = useContext(ReflectionContext);
+ const router = useRouter();
+ const handleAcceptAndSignIn = () => {
+   handleUserAuthentication();
+   router.push("/");
+   console.log("Working Routing")
+ };
   return (
     <>
       <div className={styles.tncPage}>
         <div className={styles.navbarTnc}>
-          <div className={styles.content}>
-            <Link href="/">
-              <div className={styles.logoContainer}>
-                <Image
-                  className={styles.logo}
-                  src={logo}
-                  alt="logo"
-                  height={50}
-                  width={155}
-                />
-              </div>
-            </Link>
-            <div className={styles.bannerNav}>
-              <div>About Us</div>
-              <div>Follow Us</div>
-              <div>Get Premium</div>
-              <div className={styles.accentedButton}>Get Started</div>
-            </div>
-          </div>
+          <Navbar/>
         </div>
         <div className={styles.tandcwrapper}>
           <div className={styles.leftSide}>
             <div className={styles.tacContent}>
-              {/* <div className={styles.heading}>
-              <h1>
-                Terms & <br></br>
-                Conditions
-              </h1>
-            </div> */}
               <div className={styles.contenttac}>
                 <span className="text-black flex items-center justify-center mb-[1rem]">
                   Terms and Conditions for Reflection Blog Collection Web
@@ -295,16 +270,16 @@ const TermsConditions = () => {
           </div>
         </div>
       </div>
-      <div className={styles.actionButton}>
+      {currentUser?(<></>):(<div className={styles.actionButton}>
         <Link href={`/t&c/terms`}>
           <div
             className={styles.accentedButton2}
-            onClick={authenticate}
+            onClick={handleAcceptAndSignIn}
           >
             Accept T&C and Sign In
           </div>
         </Link>
-      </div>
+      </div>)}
     </>
   );
 };
