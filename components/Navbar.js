@@ -70,7 +70,9 @@ const Navbar = () => {
             <div className={styles.bannerNav}>
               <div>About Us</div>
               <div>Follow Us</div>
-              <div onClick={handleUserAuthentication}>Get Premium</div>
+              <Link href={`/premium/buy`}>
+                <div>Get Premium</div>
+              </Link>
               <div
                 className={styles.accentedButton}
                 onClick={handleUserAuthentication}

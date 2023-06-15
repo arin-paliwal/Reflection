@@ -7,16 +7,20 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import React, { useContext } from "react";
 import Link from "next/link";
 import { useState } from "react";
+import Router, { useRouter } from "next/router";
 const styles = {
-  wrapper: "flex flex-row h-screen w-screen p-10 overflow-y",
+  wrapper: "flex flex-row items-center justify-center h-screen w-[1200px] p-10 overflow-y",
   logoContainer: "object-contain w-[200px] mr-10",
   formContainer: "p-5 ml-[5rem] h-screen scrollabe-y w-[800px] rounded-[50px] flex gap-[180px] flex-col",
   formHeading:"flex flex-start top-0 text-3xl text-[#a4bc92] justify-center",
   inputContainer:"flex flex-col",
-  inputBoxes:"flex flex-start space-between gap-10 text-xl  w-full"
+  inputBoxes:"flex flex-start space-between gap-10 text-xl  w-full",
+    accentedButton:"w-[200px] bg-black text-white py-4 px-4 rounded-full",
+   actionButton:"flex items-center justify-center mb-2rem",
 };
 
 const PostForm = () => {
+  const router=useRouter();
   const { currentUser } = useContext(ReflectionContext);
   const [title, setTitle] = useState("");
   const [brief, setBrief] = useState("");
@@ -37,10 +41,17 @@ const PostForm = () => {
       title: title,
     });
   };
+  const submitAndRoute = () => {
+   addPostToFirebase();
+   router.push("/");
+ };
   return (
-    <>
+    <div className={styles.page}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
+          {/* <div className={styles.formHeading}>
+            <h1>Enter Article Details</h1>
+          </div> */}
           <div className={styles.logoContainer}>
             <Link href={"/"}>
               <Image className={styles.logo} src={logo} alt="logo" />
@@ -48,9 +59,7 @@ const PostForm = () => {
           </div>
         </div>
         <div className={styles.formContainer}>
-          <div className={styles.formHeading}>
-            <h1>Enter Article Title and Briefing</h1>
-          </div>
+          
           <form className="flex flex-col gap-4">
             <div className={styles.inputContainer}>
               <label
@@ -144,11 +153,18 @@ const PostForm = () => {
                 placeholder="finally...your article"
               />
             </div>
-            <button onClick={addPostToFirebase}>Submit</button>
+            <div className={styles.actionButton}>
+              <button
+                onClick={addPostToFirebase}
+                className={styles.accentedButton}
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

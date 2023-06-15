@@ -30,9 +30,11 @@ const Standard = () => {
         <div className={styles.instructions}>
           <h1>
             Click on the below button<br></br>Accept the{" "}
+            <Link href="/t&c/terms">
             <span className="cursor-pointer text-[#a4bc92]">
               Terms & Conditions
-            </span>{" "}
+            </span>
+            </Link>{" "}
             and create the account
           </h1>
         </div>

@@ -6,6 +6,7 @@ import React from "react";
 import tnc from "../../assets/images/tnc.gif";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
+import scroll from "../../assets/images/scroll.gif"
 import { useContext } from "react";
 import { ReflectionContext } from "@/context/ReflectionContext";
 const styles = {
@@ -17,22 +18,29 @@ const styles = {
   bannerNav: "flex cursor-pointer items-center space-x-5",
   accentedButton: "bg-black text-white py-2 px-4 rounded-full",
   tandcwrapper: "p-8 flex flex-row",
-  rightSide: "mt-[7rem] flex flex-col justify-center fixed",
-  tncImage: "h-[600px] w-[600px] mt-[-150px] flex flex-start",
+  rightSide: "mt-[7rem] flex flex-col fixed",
+  tncImage: "mt-[-150px]",
   heading:
-    "space-between text-5xl text-[#A4BC92] p-5 flex items-center justify-center",
+    "space-between text-5xl text-[#A4BC92] p-5 flex items-center justify-center", 
   tacContent: "max-w-3xl text-xl leading-9 justify-between",
   contenttac: "text-[#787878]",
   headingContent: "text-black font-bold",
-  rightContainer: "flex flex-col",
+  rightContainer: "flex flex-col flex-start",
+  // scrollIcon:"items-center flex justify-center ml-[1rem] cursor-pointer",
   individual: "bg-[#f2f2f2] p-8 rounded-[50px] gap-[2rem]",
   tncPage: "",
   leftSide: "mt-[7rem]",
   actionButton: "flex flex-col p-5 items-center justify-center",
-  accentedButton2:"bg-black text-white py-4 px-4 rounded-full"
+  accentedButton2:"bg-black text-white py-4 px-4 rounded-full",
+  // rightSide:"object-contain"
 };
 
 const TermsConditions = () => {
+  function scrollToBottom()
+{
+    var height = document.body.scrollHeight;
+    window.scroll(0 , height);
+}
  const { handleUserAuthentication,currentUser } = useContext(ReflectionContext);
  const router = useRouter();
  const handleAcceptAndSignIn = () => {
@@ -44,7 +52,7 @@ const TermsConditions = () => {
     <>
       <div className={styles.tncPage}>
         <div className={styles.navbarTnc}>
-          <Navbar/>
+          <Navbar />
         </div>
         <div className={styles.tandcwrapper}>
           <div className={styles.leftSide}>
@@ -264,22 +272,33 @@ const TermsConditions = () => {
                   Terms & <br></br>
                   Conditions
                 </h1>
+                  {/* <button className={styles.scrollIcon}
+                  onClick={scrollToBottom}
+                  ><Image src={scroll} alt="scroll-gif" 
+                  width={80}
+                  /></button> */}
               </div>
-              <Image className={styles.tncImage} src={tnc} alt="tncLogo" />
+             <div className={styles.rightSideImage}>
+               <Image className={styles.tncImage} src={tnc} alt="tncLogo" height="240px" />
+             </div>
             </div>
           </div>
         </div>
       </div>
-      {currentUser?(<></>):(<div className={styles.actionButton}>
-        <Link href={`/t&c/terms`}>
-          <div
-            className={styles.accentedButton2}
-            onClick={handleAcceptAndSignIn}
-          >
-            Accept T&C and Sign In
-          </div>
-        </Link>
-      </div>)}
+      {currentUser ? (
+        <></>
+      ) : (
+        <div className={styles.actionButton}>
+          <Link href={`/t&c/terms`}>
+            <div
+              className={styles.accentedButton2}
+              onClick={handleAcceptAndSignIn}
+            >
+              Accept T&C and Sign In
+            </div>
+          </Link>
+        </div>
+      )}
     </>
   );
 };
