@@ -52,7 +52,9 @@ const Navbar = () => {
           </Link>
           {currentUser ? (
             <div className={styles.bannerNav}>
-              <div>About Us</div>
+              <Link href={`/about/me`}>
+                <div>About Us</div>
+              </Link>
               <div>Follow Us</div>
               <Link href={`/premium/buy`}>
                 <div>Get Premium</div>

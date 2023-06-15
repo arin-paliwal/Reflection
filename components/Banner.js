@@ -16,11 +16,6 @@ const Banner = () => {
           <button className={styles.accentedButton}>Start Reading</button>
         </div>
         <div className="flex-1"></div>
-        <Image
-          className="h-[200px] object-contain flex-1 md:inline-flex "
-          src={banner}
-          alt="banner"
-        />
       </div>
     </div>
   );
