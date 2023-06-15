@@ -79,7 +79,11 @@ const ArticleMain = ({ post, author }) => {
         </div>
         <div className={styles.articleContainer}>
           <div className={styles.bannerContainer}>
-            <Image src={banner} alt="banner-image" className={styles.image} />
+            <Image
+              src={`https://res.cloudinary.com/demo/image/fetch/${post.data.bannerImage}`} width={100} height={100}
+              alt="banner-image"
+              className={styles.image}
+            />
           </div>
           <div className={styles.title}>{post?.data?.title}</div>
           <h4 className={styles.subTitle}>

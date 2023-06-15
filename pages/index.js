@@ -39,6 +39,7 @@ import Cards from "@/components/Cards";
 import Loader from "@/components/Loader1";
 import { ReflectionContext } from "@/context/ReflectionContext";
 import { Archivo } from "next/font/google";
+import Standard from "@/components/Standard";
 
 const archivo = Archivo({ subsets: ["latin"] });
 
@@ -52,6 +53,7 @@ const styles = {
 export default function Home() {
   const { Posts } = useContext(ReflectionContext);
   const [loading, setLoading] = useState(true);
+  const {currentUser}=useContext(ReflectionContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -71,11 +73,15 @@ export default function Home() {
             <Banner />
             <div className={styles.main}>
               <div className={styles.container}>
-                <div className={styles.cards}>
+                {currentUser?(
+                  <div className={styles.cards}>
                   {Posts.map((post) => (
                     <Cards post={post} key={post.id} />
                   ))}
                 </div>
+                ):(
+                  <Standard/>
+                )}
               </div>
             </div>
           </div>

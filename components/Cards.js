@@ -38,7 +38,7 @@ const Cards = ({ post }) => {
   // console.log(post.data.author);
   return (
     <>
-      {currentUser ? (
+      {/* {currentUser ? ( */}
         <Link href={`/post/${post.id}`}>
           <div className={styles.wrapper}>
             <div className={styles.postDetails}>
@@ -84,9 +84,9 @@ const Cards = ({ post }) => {
             </div>
           </div>
         </Link>
-      ) : (
-        <Standard />
-      )}
+      {/* ) : ( */}
+        {/* <Standard /> */}
+      {/* )} */}
     </>
   );
 };
