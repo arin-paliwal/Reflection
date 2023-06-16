@@ -36,10 +36,10 @@ const Post = () => {
       ) : (
         <div className={styles.wrapper}>
           <div className={styles.navbar}>
-            <ReadersNav />
+            <ReadersNav author={author} />
           </div>
           <ArticleMain post={post} author={author} />
-          <ArticleSidebar />
+          <ArticleSidebar post={post} author={author} />
         </div>
       )}
     </>

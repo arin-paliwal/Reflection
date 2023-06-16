@@ -1,13 +1,15 @@
 /* eslint-disable react/jsx-key */
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import avatar from "../../assets/images/avatar.png";
 import search from "../../assets/images/search.png";
 import reccthumb from "../../assets/images/reccthumb.png";
+import { ReflectionContext } from "@/context/ReflectionContext";
 const styles = {
   wrapper: "h-screen min-w-[10rem] max-w-[30rem] flex-[1.2] p-[2rem]",
   accentedButton:
-    "flex items-center justify-center text-sm bg-black text-white my-[2rem] py-[.6rem] rounded-full",
+    "flex items-center justify-center text-sm bg-black text-white my-[2rem] py-[.6rem] rounded-full cursor-pointer",
   searchBar:
     "flex items-center h-[2.6rem] px-[1rem] gap-[0.6rem] border rounded-full",
   search: "border-none outline-none w-full bg-none",
@@ -31,10 +33,14 @@ const styles = {
   articleContent: "flex-4",
   title: "font-bold text-[#A4BC92]",
 };
-const ArticleSidebar = ({ author }) => {
+const ArticleSidebar = ({ post, author }) => {
+  const { currentUser } = useContext(ReflectionContext);
   return (
     <div className={styles.wrapper}>
-      <div className={styles.accentedButton}>Get Reflection Membership</div>
+      <Link href="/premium/buy">
+        {" "}
+        <div className={styles.accentedButton}>Get Reflection Membership</div>
+      </Link>
       <div className={styles.searchBar}>
         <Image src={search} alt="search-icon" width={20} height={20} />
         <input
@@ -45,11 +51,16 @@ const ArticleSidebar = ({ author }) => {
       </div>
       <div className={styles.authorContainer}>
         <div className={styles.authorProfileImageContainer}>
-          <Image src={avatar} alt="profileImage" width={100} height={100} />
+          <Image
+            src={`https://res.cloudinary.com/demo/image/fetch/${author?.data?.imageUrl}`}
+            alt="profileImage"
+            width={100}
+            height={100}
+          />
         </div>
-        <div className={styles.authorName}>Arin Paliwal</div>
+        <div className={styles.authorName}>{author?.data?.name}</div>
         <div className={styles.authorFollowers}>
-          20K Followers ● Technology & Resources
+          20K Followers ● {post?.data?.category}
         </div>
         <div className={styles.authorActions}>
           <button className={styles.actionButton}>Follow</button>

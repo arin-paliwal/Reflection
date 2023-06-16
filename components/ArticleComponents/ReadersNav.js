@@ -18,7 +18,7 @@ const styles = {
   profileImage: "object-cover",
   profileImageContainer: "w-[3rem] rounded-full overflow-hidden items-center",
 };
-const ReadersNav = () => {
+const ReadersNav = ({author}) => {
   return (
     <div className={styles.wrapper}>
       <Link href="/">
@@ -36,9 +36,11 @@ const ReadersNav = () => {
       </div>
       <div className={styles.profileImageContainer}>
         <Image
-          className={styles.profileImage}
-          src={avatar}
-          alt="profileImage"
+          className={styles.authorImage}
+          src={`https://res.cloudinary.com/demo/image/fetch/${author?.data?.imageUrl}`}
+          alt="profile-image"
+          width={100}
+          height={100}
         />
       </div>
     </div>

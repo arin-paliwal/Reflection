@@ -31,7 +31,7 @@ const ArticleMain = ({ post, author }) => {
   const date = new Date(post?.data?.postedOn);
   // date.setUTCHours(date.getUTCHours() + 5);
   // date.setUTCMinutes(date.getUTCMinutes() + 30);
-
+console.log(author);
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -40,14 +40,17 @@ const ArticleMain = ({ post, author }) => {
             <div className={styles.authorProfileContainer}>
               <Image
                 className={styles.authorImage}
-                src={avatar}
+                src={`https://res.cloudinary.com/demo/image/fetch/${author?.data?.imageUrl}`}
                 alt="profile-image"
                 width={100}
                 height={100}
               />
             </div>
             <div className={styles.column}>
-              <div className="font-bold">{author?.data?.name}</div>
+              <div className="font-bold">
+                {author?.data?.name} ● &nbsp;
+                {post?.data?.postLength} min read
+              </div>
               <div className={styles.postDetails}>
                 <span>
                   {post?.data?.category} ● &nbsp;
@@ -58,8 +61,7 @@ const ArticleMain = ({ post, author }) => {
                     hour12: true,
                     // timeZone: "Asia/Kolkata",
                   })}{" "}
-                  &nbsp; ● &nbsp;
-                  {post?.data?.postLength} min read
+                  UTC &nbsp;
                 </span>
                 <span className={styles.listenButton}>
                   <Image src={play} alt="play" width={20} height={20} />
@@ -80,7 +82,9 @@ const ArticleMain = ({ post, author }) => {
         <div className={styles.articleContainer}>
           <div className={styles.bannerContainer}>
             <Image
-              src={`https://res.cloudinary.com/demo/image/fetch/${post?.data?.bannerImage}`} width={100} height={100}
+              src={`https://res.cloudinary.com/demo/image/fetch/${post?.data?.bannerImage}`}
+              width={100}
+              height={100}
               alt="banner-image"
               className={styles.image}
             />
