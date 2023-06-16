@@ -22,15 +22,15 @@ const styles = {
   space: `font-bold`,
   bannerContainer: `h-[18rem] w-full grid center overflow-hidden mb-[2rem]`,
   articleContainer: `flex flex-col gap-[1rem]`,
-  image: "object-cover",
+  image: "h-full w-full",
   title: "font-bold text-3xl",
   subTitle: "text-[1.2rem] text-[#787878]",
   article: "font-medium",
 };
 const ArticleMain = ({ post, author }) => {
   const date = new Date(post?.data?.postedOn);
-  date.setUTCHours(date.getUTCHours() + 5);
-  date.setUTCMinutes(date.getUTCMinutes() + 30);
+  // date.setUTCHours(date.getUTCHours() + 5);
+  // date.setUTCMinutes(date.getUTCMinutes() + 30);
 
   return (
     <div className={styles.wrapper}>
@@ -56,7 +56,7 @@ const ArticleMain = ({ post, author }) => {
                     minute: "numeric",
                     second: "numeric",
                     hour12: true,
-                    timeZone: "Asia/Kolkata",
+                    // timeZone: "Asia/Kolkata",
                   })}{" "}
                   &nbsp; ● &nbsp;
                   {post?.data?.postLength} min read
@@ -80,7 +80,7 @@ const ArticleMain = ({ post, author }) => {
         <div className={styles.articleContainer}>
           <div className={styles.bannerContainer}>
             <Image
-              src={`https://res.cloudinary.com/demo/image/fetch/${post.data.bannerImage}`} width={100} height={100}
+              src={`https://res.cloudinary.com/demo/image/fetch/${post?.data?.bannerImage}`} width={100} height={100}
               alt="banner-image"
               className={styles.image}
             />

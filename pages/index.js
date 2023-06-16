@@ -11,8 +11,8 @@ const archivo = Archivo({ subsets: ["latin"] });
 
 const styles = {
   cards: "flex flex-col gap-3 p-10 sm:grid-cols-2 md:gap-6 lg:grid-cols-3",
-  container: "max-w-7xl flex-1",
-  main: "flex justify-center",
+  container: "max-w-7xl flex-1 gap-5",
+  main: "flex justify-center gap-5",
   wrapper: "mx-auto",
 };
 

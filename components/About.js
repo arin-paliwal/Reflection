@@ -1,12 +1,15 @@
 import react from "react";
 import Link from "next/link";
 import Image from "next/image";
+import logo from "../assets/images/logo.png"
 import facebook from "../assets/Social/facebook.svg";
 import instagram from "../assets/Social/instagram.svg";
 import whatsapp from "../assets/Social/whatsapp.svg";
 import github from "../assets/Social/github.svg";
 import about from "../assets/images/about.gif"
 const styles = {
+  logoContainer: "flex items-center flex-start",
+  logo: "cursor-pointer object-contain",
   page: "p-8",
   headingContainer: "w-full",
   heading: "text-6xl text-[#a4bc92] flex items-center justify-center w-full",
@@ -18,11 +21,22 @@ const styles = {
   wrapper: "flex flex-row flex-1",
   socialContainer: "flex flex-col gap-5 items-center justify-center",
   socialHeading: "text-2xl text-bold text-[#a4bc92]",
-  socialIcons:"flex flex-row space-between gap-5"
+  socialIcons: "flex flex-row space-between gap-5",
 };
 const About=()=>{
     return (
       <div className={styles.page}>
+        <Link href="/">
+          <div className={styles.logoContainer}>
+            <Image
+              className={styles.logo}
+              src={logo}
+              alt="logo"
+              height={50}
+              width={155}
+            />
+          </div>
+        </Link>
         <div className={styles.headingContainer}>
           <div className={styles.heading}>
             <h1>About Us !</h1>
@@ -49,8 +63,8 @@ const About=()=>{
               <h1 className={styles.socialHeading}>Connect with us : </h1>
               <div className={styles.socialIcons}>
                 <Image src={whatsapp} alt="whatsapp" width={40} />
-                <Image src={facebook} alt="facebook"  width={40}/>
-                <Image src={instagram} alt="instagram"  width={40}/>
+                <Image src={facebook} alt="facebook" width={40} />
+                <Image src={instagram} alt="instagram" width={40} />
                 <Image src={github} alt="github" width={40} />
               </div>
             </div>
