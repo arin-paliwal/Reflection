@@ -1,14 +1,35 @@
 import React from "react";
 import { useState } from "react";
+import Modal from "react-modal";
 import Image from "next/image";
 import bookmark from "../../assets/Social/bookmark.svg";
-import avatar from "../../assets/images/avatar.png";
 import menu from "../../assets/Social/menu.svg";
-import play from "../../assets/images/play.gif";
-import facebook from "../../assets/Social/facebook.svg";
-import twitter from "../../assets/Social/twitter.svg";
-import whatsapp from "../../assets/Social/whatsapp.svg";
 import banner from "../../assets/images/banner.jpg";
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  FacebookShareButton,
+  FacebookIcon,
+} from "react-share";
+const formStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    transform: "translate(-50%,-50%)",
+    backgroundColor: "fff",
+    padding: "0",
+    border: "none",
+  },
+  overlay: {
+    backgroundColor: "rgba(10,11,13,0.75)",
+  },
+};
 const styles = {
   wrapper: `flex items-center justify-center flex-[3]`,
   content: `h-screen w-full p-[2rem]`,
@@ -60,6 +81,8 @@ const ArticleMain = ({ post, author }) => {
     }
     setHearing(false);
   }
+  const shareUrl = `https://blogs-reflection.vercel.app/post/${post.id}`;
+  const shareTitle = `Check out this amazing article`;
 
   return (
     <div className={styles.wrapper}>
@@ -110,9 +133,21 @@ const ArticleMain = ({ post, author }) => {
             )}
           </span>
           <div className={styles.social}>
-            <Image src={twitter} alt="twitter" onClick={stopSpeaking} />
-            <Image src={facebook} alt="facebook" />
-            <Image src={whatsapp} alt="whatsapp" />
+            <TwitterShareButton url={shareUrl} title={shareTitle}>
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+
+            <WhatsappShareButton url={shareUrl} title={shareTitle}>
+              <WhatsappIcon size={32} round />
+            </WhatsappShareButton>
+
+            <LinkedinShareButton url={shareUrl} title={shareTitle}>
+              <LinkedinIcon size={32} round />
+            </LinkedinShareButton>
+
+            <FacebookShareButton url={shareUrl} title={shareTitle}>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
             <div className={styles.space}>|</div>
             <Image src={bookmark} alt="bookmark" />
             <Image src={menu} alt="menu" />
