@@ -8,6 +8,7 @@ import avatar from "../../assets/images/avatar.png";
 import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const styles = {
   wrapper:
     "w-[7rem] h-screen flex flex-col justify-between items-center p-[1rem]",
@@ -18,7 +19,8 @@ const styles = {
   profileImage: "object-cover",
   profileImageContainer: "w-[3rem] rounded-full overflow-hidden items-center",
 };
-const ReadersNav = ({author}) => {
+const ReadersNav = ({ author }) => {
+  const router = useRouter();
   return (
     <div className={styles.wrapper}>
       <Link href="/">
@@ -27,7 +29,9 @@ const ReadersNav = ({author}) => {
         </div>
       </Link>
       <div className={styles.icons}>
-        <Image src={home} alt="homeIcon" />
+        <Link href="/">
+          <Image src={home} alt="homeIcon" />
+        </Link>
         <Image src={notification} alt="homeIcon" />
         <Image src={pencil} alt="homeIcon" />
         <Image src={bookmark} alt="homeIcon" />
