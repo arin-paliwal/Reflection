@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import bookmark from "../../assets/Social/bookmark.svg";
 import avatar from "../../assets/images/avatar.png";
@@ -17,21 +18,49 @@ const styles = {
   authorImage: `object-cover`,
   column: `flex flex-1 flex-col justify-center`,
   postDetails: `flex gap-[.2rem] text-[#787878]`,
-  listenButton: `flex items-center gap-[.2rem] text-[#A4BC92]`,
+  listenButton: `flex items-center bg-black px-4 py-2 rounded-full text-white`,
+  actionButton: "bg-black text-white rounded-full px-[.6rem] py-[.4rem]",
   social: `flex gap-[1rem] text-[#787878] cursor-pointer`,
   space: `font-bold`,
   bannerContainer: `h-[18rem] w-full grid center overflow-hidden mb-[2rem]`,
   articleContainer: `flex flex-col gap-[1rem]`,
   image: "h-full w-full",
   title: "font-bold text-3xl",
-  subTitle: "text-[1.2rem] text-[#787878]",
-  article: "font-medium",
+  subTitle: "text-[1rem] text-[#000]",
+  article: "text-[1.4rem] text-[#787878]",
+  overViewContainer: "bg-[#f5f5f5] p-6 rounded-[40px] text-[1.1rem]",
+  ListenButtons: "flex flex-row gap-[.3rem]",
 };
 const ArticleMain = ({ post, author }) => {
+  const [hearing, setHearing] = useState(false);
   const date = new Date(post?.data?.postedOn);
   // date.setUTCHours(date.getUTCHours() + 5);
   // date.setUTCMinutes(date.getUTCMinutes() + 30);
-console.log(author);
+  console.log(author);
+  const toSpeak = post?.data?.body;
+  let utterance; // Declare a variable to store the current utterance
+
+  function speak() {
+    // Stop any ongoing speech synthesis
+    if (speechSynthesis.speaking) {
+      speechSynthesis.cancel();
+    }
+
+    utterance = new SpeechSynthesisUtterance(toSpeak);
+    let voicesArray = speechSynthesis.getVoices();
+    utterance.voice = voicesArray[2];
+    speechSynthesis.speak(utterance);
+    setHearing(true);
+  }
+
+  function stopSpeaking() {
+    // Check if there's an ongoing speech synthesis
+    if (speechSynthesis.speaking) {
+      speechSynthesis.cancel(); // Stop the speech synthesis
+    }
+    setHearing(false);
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -63,15 +92,25 @@ console.log(author);
                   })}{" "}
                   UTC &nbsp;
                 </span>
-                <span className={styles.listenButton}>
-                  <Image src={play} alt="play" width={20} height={20} />
-                  Hear the article
-                </span>
               </div>
             </div>
           </div>
+          <span className={styles.ListenButtons}>
+            {hearing === false ? (
+              <button
+                className={`heading ${styles.actionButton}`}
+                onClick={speak}
+              >
+                <p class="text">Hear Article</p>
+              </button>
+            ) : (
+              <button className="button" onClick={stopSpeaking}>
+                <p class="text">Stop Hearing</p>
+              </button>
+            )}
+          </span>
           <div className={styles.social}>
-            <Image src={twitter} alt="twitter" />
+            <Image src={twitter} alt="twitter" onClick={stopSpeaking} />
             <Image src={facebook} alt="facebook" />
             <Image src={whatsapp} alt="whatsapp" />
             <div className={styles.space}>|</div>
@@ -100,8 +139,15 @@ console.log(author);
               })}
               &nbsp;● 698↑ 14↓
             </div>
-            <div>Overview : {post?.data?.brief}</div>
           </h4>
+          <div className={styles.overViewContainer}>
+            <div>
+              <div className="text-[#A4BC92] text-xl font-bold">
+                Overview :{" "}
+              </div>
+              {post?.data?.brief}
+            </div>
+          </div>
           <div className={styles.article}>{post?.data?.body}</div>
         </div>
       </div>
