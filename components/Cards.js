@@ -4,14 +4,13 @@ import React, { useContext } from "react";
 import bookmark from "../assets/images/bookmark.gif";
 import Link from "next/link";
 import { db } from "@/firebase";
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc, deleteDoc, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { ReflectionContext } from "@/context/ReflectionContext";
 import Standard from "./Standard";
 const styles = {
   authorContainer: "flex gap-5 ",
-  authorImageContainer:
-    "grid place-items-center overflow-hidden h-10 w-10",
+  authorImageContainer: "grid place-items-center overflow-hidden h-10 w-10",
   authorImage: "object-cover",
   postDetails: "flex-[2.5] flex flex-col",
   wrapper: "flex max-width-[46rem] h-[10rem] items-center gap-1rem",
@@ -27,18 +26,26 @@ const styles = {
 const Cards = ({ post }) => {
   const { currentUser } = useContext(ReflectionContext);
   const [authorData, setAuthorData] = useState(null);
+
   useEffect(() => {
     const getAuthorData = async () => {
-      console;
-      // console.log(((await getDoc(doc(db, "Users", post.data.author))).data()))
-      setAuthorData((await getDoc(doc(db, "Users", post.data.author))).data());
+      const authorDoc = doc(db, "Users", post.data.author);
+      const authorSnapshot = await getDoc(authorDoc);
+      setAuthorData(authorSnapshot.data());
     };
+
     getAuthorData();
   }, [post.data.author]);
-  // console.log(post.data.author);
+
+  const deletePost = async () => {
+    if (currentUser.email === post.data.author) {
+      const postDoc = doc(db, "Articles", post.id);
+      await deleteDoc(postDoc);
+    }
+  };
+
   return (
     <>
-      {/*  */}
       <div className={styles.wrapper}>
         <div className={styles.postDetails}>
           <div className={styles.authorContainer}>
@@ -56,16 +63,7 @@ const Cards = ({ post }) => {
           <Link href={`/post/${post.id}`}>
             <h1 className={styles.title}>{post.data.title}</h1>
           </Link>
-          <div
-            className={styles.briefing}
-            // style={{
-            //   overflow: "hidden",
-            //   whiteSpace: "nowrap",
-            //   textOverflow: "ellipsis",
-            // }}
-          >
-            {post.data.brief}
-          </div>
+          <div className={styles.briefing}>{post.data.brief}</div>
           <div className={styles.detailsContainer}>
             <div className={styles.articleDetails}>
               {new Date(post.data.postedOn).toLocaleString("en-US", {
@@ -90,6 +88,9 @@ const Cards = ({ post }) => {
             width={100}
           />
         </div>
+        {currentUser.email === post.data.author && (
+          <button onClick={deletePost}>Delete</button>
+        )}
       </div>
       {/* </Link> */}
     </>
