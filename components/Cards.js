@@ -8,6 +8,7 @@ import { getDoc, doc, deleteDoc, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { ReflectionContext } from "@/context/ReflectionContext";
 import Standard from "./Standard";
+import { Router, useRouter } from "next/router";
 const styles = {
   authorContainer: "flex gap-5 ",
   authorImageContainer: "grid place-items-center overflow-hidden h-10 w-10",
@@ -24,6 +25,7 @@ const styles = {
   thumbnail: "flex-2 object-contain",
 };
 const Cards = ({ post }) => {
+  const router = useRouter();
   const { currentUser } = useContext(ReflectionContext);
   const [authorData, setAuthorData] = useState(null);
 
@@ -42,6 +44,7 @@ const Cards = ({ post }) => {
       const postDoc = doc(db, "Articles", post.id);
       await deleteDoc(postDoc);
     }
+    router.reload();
   };
 
   return (
