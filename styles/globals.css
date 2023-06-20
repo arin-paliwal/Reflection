@@ -1004,3 +1004,37 @@
   white-space: nowrap;
   flex-direction: column;
 }
+/*   testimonails  */
+
+#content {}
+
+.testimonial blockquote {
+  margin: 10px 10px 0;
+  background: #d5d5d5;
+  padding: 20px 60px;
+  position: relative;
+  border: none;
+  border-radius: 50px;
+}
+
+.testimonial blockquote:before,
+.testimonial blockquote:after {
+  content: "\201C";
+  position: absolute;
+  font-size: 80px;
+  line-height: 1;
+  font-style: normal;
+}
+
+.testimonial blockquote:before {
+  top: 0;
+  left: 10px;
+  padding: 10px;
+}
+
+.testimonial blockquote:after {
+  content: "\201D";
+  right: 10px;
+  bottom: -0.5em;
+  padding: 10px;
+}

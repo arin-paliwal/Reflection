@@ -14,12 +14,13 @@ const styles = {
   container: "max-w-7xl flex-1 gap-5",
   main: "flex justify-center gap-5",
   wrapper: "mx-auto",
+  // landingPage: "h-screen",
 };
 
 export default function Home() {
   const { Posts } = useContext(ReflectionContext);
   const [loading, setLoading] = useState(true);
-  const {currentUser}=useContext(ReflectionContext);
+  const { currentUser } = useContext(ReflectionContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,18 +36,20 @@ export default function Home() {
       ) : (
         <main className={archivo.className}>
           <div className={styles.wrapper}>
-            <Navbar />
-            <Banner />
+            <div className={styles.landingPage}>
+              <Navbar />
+              <Banner />
+            </div>
             <div className={styles.main}>
               <div className={styles.container}>
-                {currentUser?(
+                {currentUser ? (
                   <div className={styles.cards}>
-                  {Posts.map((post) => (
-                    <Cards post={post} key={post.id} />
-                  ))}
-                </div>
-                ):(
-                  <Standard/>
+                    {Posts.map((post) => (
+                      <Cards post={post} key={post.id} />
+                    ))}
+                  </div>
+                ) : (
+                  <Standard />
                 )}
               </div>
             </div>
