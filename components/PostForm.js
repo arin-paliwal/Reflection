@@ -20,7 +20,7 @@ const styles = {
 };
 
 const PostForm = () => {
-  const router=useRouter();
+  const router = useRouter();
   const { currentUser } = useContext(ReflectionContext);
   const [title, setTitle] = useState("");
   const [brief, setBrief] = useState("");
@@ -28,8 +28,10 @@ const PostForm = () => {
   const [article, setArticle] = useState("");
   const [readTime, setReadTime] = useState("");
   const [bannerImage, setBannerImage] = useState("");
+
   const addPostToFirebase = async (event) => {
     event.preventDefault();
+
     await addDoc(collection(db, "Articles"), {
       author: currentUser.email,
       bannerImage: bannerImage,
@@ -40,11 +42,11 @@ const PostForm = () => {
       postedOn: serverTimestamp(),
       title: title,
     });
+
+    // Close the modal, route to home page, and refresh the page
+    router.push("/", undefined, { shallow: true });
   };
-  const submitAndRoute = () => {
-   addPostToFirebase();
-   router.push("/");
- };
+
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
@@ -59,7 +61,6 @@ const PostForm = () => {
           </div>
         </div>
         <div className={styles.formContainer}>
-          
           <form className="flex flex-col gap-4">
             <div className={styles.inputContainer}>
               <label
