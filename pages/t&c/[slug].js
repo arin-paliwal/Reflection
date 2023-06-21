@@ -44,8 +44,8 @@ const TermsConditions = () => {
  const { handleUserAuthentication,currentUser } = useContext(ReflectionContext);
  const router = useRouter();
  const handleAcceptAndSignIn = () => {
-   handleUserAuthentication();
    router.push("/");
+   handleUserAuthentication();
    console.log("Working Routing")
  };
   return (

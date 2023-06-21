@@ -8,15 +8,15 @@ const styles = {
   wrapper: " overflow-x-hidden gap-10 flex flex-col  h-[87vh] bg-[#A4BC92] p-5",
   welcomeContainer: "flex justify-center items-center w-screen",
   welcome: "text-[4rem]",
-  typeWriter: "text-[2rem] mt-5",
+  typeWriter: "text-[2.5rem] mt-5",
   secondContainer: "flex flex-row mt-[5rem]",
   whyLeft: "w-1/2",
   whyRight: "max-w-2xl h-[7rem] flex items-center justify-center",
   reason: "text-2xl text-[#36454F]",
-  testi: "text-[1rem] h-[7rem] p-6",
+  testi: "text-[1rem] h-[7rem] p-6 flex justif-center",
   comma: "mt-[2rem]",
   testimonials: "max-w-4xl",
-  why: "text-3xl text-[#f1f1f1] mb-[1rem]",
+  why: "text-3xl text-[#fff] mb-[1rem] font-bold",
   whyContainer: "flex items-center justify-center",
 };
 const testimonials = [
