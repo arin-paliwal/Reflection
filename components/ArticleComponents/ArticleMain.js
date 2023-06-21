@@ -83,7 +83,7 @@ const ArticleMain = ({ post, author }) => {
   }
   const shareUrl = `https://blogs-reflection.vercel.app/post/${post.id}`;
   const shareTitle = `Check out this amazing article`;
-
+  console.log(post.data.bannerImage);
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -127,7 +127,10 @@ const ArticleMain = ({ post, author }) => {
                 <p class="text">Hear Article</p>
               </button>
             ) : (
-              <button className="button" onClick={stopSpeaking}>
+              <button
+                className={`heading ${styles.actionButton}`}
+                onClick={stopSpeaking}
+              >
                 <p class="text">Stop Hearing</p>
               </button>
             )}
@@ -157,10 +160,12 @@ const ArticleMain = ({ post, author }) => {
           <div className={styles.bannerContainer}>
             <Image
               src={`https://res.cloudinary.com/demo/image/fetch/${post?.data?.bannerImage}`}
+              // src={banner}
               width={100}
               height={100}
               alt="banner-image"
               className={styles.image}
+              unoptimized
             />
           </div>
           <div className={styles.title}>{post?.data?.title}</div>

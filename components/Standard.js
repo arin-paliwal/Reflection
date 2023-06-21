@@ -7,9 +7,10 @@ const styles = {
   heading: "text-4xl text-[#a4bc92]",
   leftContent: "text-[#787878] mt-[2.5rem] max-w-xl",
   instructions: "text-[#787878] text-xl flex items-center justify-center",
-  rightSide:"flex flex-col gap-5 items-center justify-center",
-  accentedButton: "w-[15rem] bg-black text-white py-4 px-4 rounded-full flex items-center justify-center",
-  actionButton:"flex flex-col "
+  rightSide: "flex flex-col gap-5 items-center justify-center",
+  accentedButton:
+    "w-[15rem] shadow-md bg-black text-white py-4 px-4 rounded-full flex items-center justify-center",
+  actionButton: "flex flex-col ",
 };
 const Standard = () => {
   return (

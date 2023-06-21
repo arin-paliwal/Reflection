@@ -28,7 +28,7 @@ const styles = {
   wrapper: "flex justify-center gap-10 p-5 bg-[#A4BC92]",
   content: "max-w-7xl flex flex-1 justify-between gap-10",
   bannerNav: "flex cursor-pointer items-center space-x-5",
-  accentedButton: "bg-black text-white py-2 px-4 rounded-full",
+  accentedButton: "bg-black text-white py-2 px-4 rounded-full shadow-md",
 };
 const Navbar = () => {
   const router = useRouter();
