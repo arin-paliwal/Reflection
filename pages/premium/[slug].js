@@ -30,7 +30,9 @@ const GetPremium = () => {
           <h1>
             Immerse Yourself in a Vast and Exclusive Collection of Enlightening
             Blogs: Unlock{" "}
-            <span className="text-black font-medium cursor-pointer ">Premium Subscription</span>{" "}
+            <span className="text-black font-medium cursor-pointer ">
+              Premium Subscription
+            </span>{" "}
             to Access a Wealth of Knowledge and Unleash Your Curiosity
           </h1>
         </div>
@@ -38,34 +40,41 @@ const GetPremium = () => {
           <div className={styles.buyPremium}>
             By unlocking our premium features, you will gain access to a
             treasure trove of exclusive benefits and valuable resources.
-            <br /><br/>
-            ●&nbsp;Add-free Experience<br></br>●&nbsp;Offline Reading<br/> ●&nbsp;Early Access<br/>●&nbsp;Priority Support
+            <br />
+            <br />
+            ●&nbsp;Ad-free Experience<br></br>●&nbsp;Offline Reading
+            <br /> ●&nbsp;Early Access
+            <br />
+            ●&nbsp;Priority Support
           </div>
           <div className={styles.paymentCard}>
             <div className="modal">
               <form className="form">
                 <div className="paymentOptions">
                   <button name="Google Pay" type="button">
-                    <Image src={google}
-                    onClick={confirmPurchase} 
-                    className={styles.paymentLogos}
-                    alt="google-pay-logo"
-                    width={70}
+                    <Image
+                      src={google}
+                      onClick={confirmPurchase}
+                      className={styles.paymentLogos}
+                      alt="google-pay-logo"
+                      width={70}
                     />
-                    </button>{" "}
+                  </button>{" "}
                   <button name="apple-pay" type="button">
-                    <Image src={apple} 
-                    onClick={confirmPurchase}
-                    className={styles.paymentLogos}
-                    alt="apple-pay-logo"
+                    <Image
+                      src={apple}
+                      onClick={confirmPurchase}
+                      className={styles.paymentLogos}
+                      alt="apple-pay-logo"
                     />
-                    </button>{" "}
+                  </button>{" "}
                   <button name="google-pay" type="button">
-                    <Image src={amazon} 
-                    onClick={confirmPurchase}
-                    className={styles.paymentLogos}
-                    alt="google-pay-logo"
-                    width={70}
+                    <Image
+                      src={amazon}
+                      onClick={confirmPurchase}
+                      className={styles.paymentLogos}
+                      alt="google-pay-logo"
+                      width={70}
                     />
                   </button>
                 </div>
