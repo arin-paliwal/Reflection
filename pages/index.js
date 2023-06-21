@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
 import Cards from "@/components/Cards";
@@ -28,33 +28,55 @@ export default function Home() {
     }, 2500);
     return () => clearTimeout(timer);
   }, []);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileScreen(window.innerWidth <= 600);
+    };
+
+    handleResize(); // Check initial screen size
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <main className={archivo.className}>
-          <div className={styles.wrapper}>
-            <div className={styles.landingPage}>
-              <Navbar />
-              <Banner />
-            </div>
-            <div className={styles.main}>
-              <div className={styles.container}>
-                {currentUser ? (
-                  <div className={styles.cards}>
-                    {Posts.map((post) => (
-                      <Cards post={post} key={post.id} />
-                    ))}
-                  </div>
-                ) : (
-                  <Standard />
-                )}
-              </div>
-            </div>
+      {isMobileScreen ? (
+        <div className="h-screen w-screen">
+          <div className=" flex h-full items-center justify-center">
+            <h1 className="text-xl">Page Not Found | 404</h1>
           </div>
-        </main>
+        </div>
+      ) : (
+        <>
+          {loading ? (
+            <Loader />
+          ) : (
+            <main className={archivo.className}>
+              <div className={styles.wrapper}>
+                <div className={styles.landingPage}>
+                  <Navbar />
+                  <Banner />
+                </div>
+                <div className={styles.main}>
+                  <div className={styles.container}>
+                    {currentUser ? (
+                      <div className={styles.cards}>
+                        {Posts.map((post) => (
+                          <Cards post={post} key={post.id} />
+                        ))}
+                      </div>
+                    ) : (
+                      <Standard />
+                    )}
+                  </div>
+                </div>
+              </div>
+            </main>
+          )}
+        </>
       )}
     </>
   );
