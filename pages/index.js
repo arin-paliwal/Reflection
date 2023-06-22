@@ -10,7 +10,7 @@ import Standard from "@/components/Standard";
 const archivo = Archivo({ subsets: ["latin"] });
 
 const styles = {
-  cards: "flex flex-col gap-3 p-10 sm:grid-cols-2 md:gap-6 lg:grid-cols-3",
+  cards: "flex flex-col gap-3 p-10 grid-cols-2 gap-6 grid-cols-3",
   container: "max-w-7xl flex-1 gap-5",
   main: "flex justify-center gap-5",
   wrapper: "mx-auto",
@@ -42,15 +42,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      {isMobileScreen ? (
-        <div className="h-screen w-screen">
-          <div className=" flex h-full items-center justify-center">
-            <h1 className="text-xl">Page Not Found | 404</h1>
-          </div>
-        </div>
-      ) : (
-        <>
+         <>
           {loading ? (
             <Loader />
           ) : (
@@ -77,7 +69,5 @@ export default function Home() {
             </main>
           )}
         </>
-      )}
-    </>
   );
 }

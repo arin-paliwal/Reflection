@@ -1,17 +1,14 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
-import banner from "../assets/images/banner.png";
-import bannerRight from "../assets/images/bannerRight.gif";
-
 const styles = {
   wrapper: " overflow-hidden gap-10 flex flex-col  h-[87vh] bg-[#A4BC92] p-5",
-  welcomeContainer: "flex justify-center items-center w-screen",
-  welcome: "text-[4rem] sm:text-5xl",
-  typeWriter: "text-[2.5rem] mt-5",
+  welcomeContainer:"sm:flex justify-center items-center w-screen",
+  welcome: "text-[4rem] font-medium sm:text-5xl text-xl",
+  typeWriter: "sm:text-[2.5rem] text-[1.7rem] sm:mt-10 h-[2rem]",
   secondContainer: "flex flex-row mt-[5rem]",
-  whyLeft: "w-1/2",
-  whyRight: "max-w-2xl h-[7rem] flex items-center justify-center",
+  whyLeft: "sm:w-1/2",
+  whyRight: "max-w-2xl h-[7rem] hidden sm:flex items-center justify-center",
   reason: "text-2xl text-[#36454F]",
   testi: "text-[1rem] h-[7rem] p-6 flex justif-center",
   comma: "mt-[2rem]",
@@ -19,21 +16,6 @@ const styles = {
   why: "text-3xl text-[#fff] mb-[1rem] font-bold",
   whyContainer: "flex items-center justify-center",
 };
-// const styles = {
-//   wrapper: "overflow-hidden gap-10 flex flex-col h-[87vh] bg-[#A4BC92] p-5",
-//   welcomeContainer: "flex justify-center items-center w-screen",
-//   welcome: "text-3xl sm:text-4xl md:text-5xl",
-//   typeWriter: "text-2xl sm:text-2xl md:text-3xl mt-5",
-//   secondContainer: "flex flex-col sm:flex-row mt-[5rem]",
-//   whyLeft: "w-full sm:w-1/2",
-//   whyRight: "w-full mt-5 sm:mt-0 sm:hidden",
-//   reason: "text-lg sm:text-2xl text-[#36454F]",
-//   testi: "text-lg sm:text-xl h-[7rem] p-6 flex items-center justify-center",
-//   comma: "mt-[2rem]",
-//   testimonials: "max-w-4xl sm:hidden",
-//   why: "text-2xl sm:text-3xl text-[#fff] mb-[1rem] font-bold",
-//   whyContainer: "flex items-center justify-center",
-// };
 const testimonials = [
   "This blog website has become my go-to source for thought-provoking articles. The curated content never fails to spark my curiosity and broaden my perspective. Highly recommended! - Sarah M.",
   "I've been searching for a reliable and engaging blog platform, and I'm thrilled to have found this website. The articles are top-notch, covering a wide range of topics that keep me coming back for more. It's a treasure trove of knowledge! - Mark T.",
