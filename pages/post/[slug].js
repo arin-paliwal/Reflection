@@ -6,7 +6,10 @@ import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Loader from "../../components/Loader2";
 const styles = {
-  wrapper: "flex flex-start",
+  wrapper: "flex sm:flex-row flex-col",
+  navbarLeft:"w-1/9 sm:flex hidden",
+  mainArt:"w-[55rem]",
+  sideBar:"w-2/6 sm:flex hidden"
 };
 const Post = () => {
   const [loading, setLoading] = useState(true);
@@ -35,11 +38,15 @@ const Post = () => {
         <Loader />
       ) : (
         <div className={styles.wrapper}>
-          <div className={styles.navbar}>
+          <div className={styles.navbarLeft}>
             <ReadersNav author={author} />
           </div>
-          <ArticleMain post={post} author={author} />
-          <ArticleSidebar post={post} author={author} />
+          <div className={styles.mainArt}>
+            <ArticleMain post={post} author={author} />
+          </div>
+          <div className={styles.sideBar}>
+            <ArticleSidebar post={post} author={author} />
+          </div>
         </div>
       )}
     </>
