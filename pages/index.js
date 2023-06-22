@@ -14,7 +14,6 @@ const styles = {
   container: "max-w-7xl flex-1 gap-5",
   main: "flex justify-center gap-5",
   wrapper: "mx-auto",
-  // landingPage: "h-screen",
 };
 
 export default function Home() {
