@@ -14,7 +14,7 @@ const styles = {
   authorImageContainer: "grid place-items-center overflow-hidden h-10 w-10",
   authorImage: "object-cover",
   postDetails: "flex-[2.5] flex flex-col",
-  wrapper: "flex justify-between gap-5 items-center",
+  wrapper: "sm:flex justify-between gap-5 items-center",
   briefing: "text-[#787878] line-clamp-2 max-w-3xl",
   title: "font-bold text-2xl",
   authorName: "font-semibold",
@@ -22,8 +22,9 @@ const styles = {
   articleDetails: "my-2 text-[.8rem]",
   category: "bg-[#000] p-2 text-white rounded-full",
   bookmark: "cursor-pointer",
-  thumbnailContainer: "object-cover",
+  thumbnailContainer: "flex flex-row gap-3 object-cover",
   thumbnail: "rounded-[14px]",
+  rightSide:"",
 };
 const Cards = ({ post }) => {
   const router = useRouter();
@@ -79,9 +80,9 @@ const Cards = ({ post }) => {
               {post.data.postLength} min &nbsp;●{" "}
               <span className={styles.category}>{post.data.category}</span>
             </div>
-            <span className={styles.bookmark}>
+            {/* <span className={styles.bookmark}>
               <Image src={bookmark} alt="bookmark" width={50} height={50} />
-            </span>
+            </span> */}
           </div>
         </div>
         <div className={styles.thumbnailContainer}>
@@ -92,7 +93,8 @@ const Cards = ({ post }) => {
             width={100}
             className={styles.thumbnail}
           />
-        </div>
+        <div className={styles.rightSide}>
+          </div>
         {currentUser.email === post.data.author && (
           <button className="buttonDelete" onClick={deletePost}>
             <svg viewBox="0 0 448 512" className="svgIconDelete">
@@ -100,8 +102,8 @@ const Cards = ({ post }) => {
             </svg>
           </button>
         )}
+        </div>
       </div>
-      {/* </Link> */}
     </>
   );
 };
