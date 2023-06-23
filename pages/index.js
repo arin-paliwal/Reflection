@@ -13,7 +13,7 @@ const styles = {
   cards: "flex flex-col p-10 grid-cols-2 sm:gap-9 gap-[4rem] grid-cols-3",
   container: "max-w-7xl flex-1 gap-5",
   main: "flex justify-center gap-5",
-  wrapper: "mx-auto",
+  wrapper: "mx-auto my-auto",
 };
 
 export default function Home() {
@@ -27,18 +27,6 @@ export default function Home() {
     }, 2500);
     return () => clearTimeout(timer);
   }, []);
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth <= 600);
-    };
-
-    handleResize(); // Check initial screen size
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
          <>
@@ -47,10 +35,8 @@ export default function Home() {
           ) : (
             <main className={archivo.className}>
               <div className={styles.wrapper}>
-                <div className={styles.landingPage}>
                   <Navbar />
                   <Banner />
-                </div>
                 <div className={styles.main}>
                   <div className={styles.container}>
                     {currentUser ? (

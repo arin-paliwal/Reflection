@@ -27,13 +27,14 @@ const styles = {
   logo: "cursor-pointer object-contain",
   wrapper: "flex justify-center gap-10 p-5 bg-[#A4BC92] ",
   // content: "max-w-7xl flex flex-1 justify-between gap-10 sm:hidden",
-  content: "max-w-7xl flex flex-1 justify-between gap-10 hidden sm:flex",
+  content: "max-w-7xl flex flex-1 justify-between gap-10 flex",
   bannerNav: "flex cursor-pointer items-center space-x-5",
-  accentedButton: "bg-black text-white py-2 px-4 rounded-full shadow-md",
+  accentedButton: "bg-black text-white py-2 px-4 w-[8rem] rounded-full shadow-md items-center flex justify-center",
+  addNav:"sm:flex hidden cursor-pointer items-center space-x-5"
 };
 const Navbar = () => {
   const router = useRouter();
-  const { currentUser, handleUserAuthentication,handleUserLogout } =
+  const { currentUser, handleUserAuthentication, handleUserLogout } =
     useContext(ReflectionContext);
   console.log(currentUser);
   return (
@@ -53,16 +54,18 @@ const Navbar = () => {
           </Link>
           {currentUser ? (
             <div className={styles.bannerNav}>
-              <Link href={`/about/me`}>
-                <div>About Us</div>
-              </Link>
-              <div>Follow Us</div>
-              <Link href={`/premium/buy`}>
-                <div>Get Premium</div>
-              </Link>
-              <Link href={`/t&c/terms`}>
-                <div className="">Terms & Conditions</div>
-              </Link>
+              <div className={styles.addNav}>
+                <Link href={`/about/me`}>
+                  <div>About Us</div>
+                </Link>
+                <div>Follow Us</div>
+                <Link href={`/premium/buy`}>
+                  <div>Get Premium</div>
+                </Link>
+                <Link href={`/t&c/terms`}>
+                  <div className="">Terms & Conditions</div>
+                </Link>
+              </div>
               <Link href={`/?addNew=1`}>
                 <div className={styles.accentedButton}>Write Blog</div>
               </Link>
@@ -78,11 +81,13 @@ const Navbar = () => {
             </div>
           ) : (
             <div className={styles.bannerNav}>
-              <div>About Us</div>
-              <div>Follow Us</div>
-              <Link href={`/premium/buy`}>
-                <div>Get Premium</div>
-              </Link>
+              <div className={styles.addNav}>
+                <div>About Us</div>
+                <div>Follow Us</div>
+                <Link href={`/premium/buy`}>
+                  <div>Get Premium</div>
+                </Link>
+              </div>
               <div
                 className={styles.accentedButton}
                 onClick={handleUserAuthentication}
