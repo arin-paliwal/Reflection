@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Router, { useRouter } from "next/router";
 const styles = {
+  accentedButton: "bg-black text-white py-3 px-4 w-[8rem] rounded-full shadow-md items-center flex justify-center",
   headingContainer: "flex flex-col items-center justify-center gap-4",
   mainContainer: "flex flex-row items-center justify-center",
   imageContainer: "",
@@ -109,7 +110,7 @@ const PostForm = () => {
 
 
   return (
-    <div className="flex flex-col w-[80rem] h-[40rem] bg-[#f0f0f0] rounded-[50px] p-8 gap-5">
+    <div className="flex flex-col justify-center items-center w-[80rem] h-[40rem] bg-[#f0f0f0] p-8 gap-5">
       <div className={styles.headingContainer}>
         <h1 className={styles.heading}>Welcome to Reflection</h1>
         <h1 className={styles.subHeading}>{directions[instructions]}</h1>
@@ -265,6 +266,11 @@ const PostForm = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={styles.accentedButton}
+        onClick={addPostToFirebase}
+        >Publish</button>
       </div>
     </div>
   );
