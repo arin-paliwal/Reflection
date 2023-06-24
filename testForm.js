@@ -118,7 +118,7 @@ const FormComponent = () => {
           <label className="block mb-2" htmlFor="brief">
             Article Brief:
           </label>
-          <textarea
+          <input
             id="brief"
             value={brief}
             onChange={handleBriefChange}
