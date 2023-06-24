@@ -16,15 +16,16 @@ const styles = {
   headingContainer: "flex flex-col items-center justify-center gap-4",
   mainContainer: "flex flex-row items-center justify-center",
   imageContainer: "",
-  image: "w-[25rem] h-[25rem]",
-  heading: "flex text-5xl font-bold",
-  subHeading: "flex text-3xl text-[#787878]",
+  image: "w-[25rem] h-[25rem] sm:flex hidden",
+  heading: "flex sm:text-5xl font-bold",
+  subHeading: "flex sm:text-3xl text-[#787878]",
   imageContainer: "flex object-contain w-1/4",
   formsContainer:
-    "bg-[#f5f5f5] rounded-[50px] w-[40rem] h-[20rem] p-10 gap-5 flex flex-col",
+    "bg-[#f9f9f9] rounded-[50px] sm:w-[45rem] sm:h-[20rem] w-[16rem] h-[26rem] p-10 gap-5 flex flex-col items-center",
   tabContainer: "",
   input: "flex items-center",
-  boxLabel:"text-[#787878] mb-[0.6rem]"
+  boxLabel:"text-[#787878] mb-[0.6rem]",
+  tabContainer:"flex sm:flex-row flex-col"
 };
 const directions = [
   "Share your knowledge and experiences by writing an article.",
@@ -110,7 +111,7 @@ const PostForm = () => {
 
 
   return (
-    <div className="flex flex-col justify-center items-center w-[80rem] h-[40rem] bg-[#f0f0f0] p-8 gap-5">
+    <div className="flex flex-col justify-center items-center sm:w-[80rem] sm:h-[40rem] bg-[#f0f0f0] p-8 gap-5 w-auto h-auto">
       <div className={styles.headingContainer}>
         <h1 className={styles.heading}>Welcome to Reflection</h1>
         <h1 className={styles.subHeading}>{directions[instructions]}</h1>
@@ -125,41 +126,41 @@ const PostForm = () => {
               className={`px-4 py-2 rounded-full ${
                 activeTab === 1
                   ? "bg-[#a4bc92] text-black font-medium"
-                  : "bg-[#f5f5f5] text-[#787878]"
+                  : "bg-[#f9f9f9] text-[#787878]"
               }`}
               onClick={() => handleTabClick(1)}
             >
-              Tab 1
+              Name & Title
             </button>
             <button
               className={`px-4 py-2 rounded-full ${
                 activeTab === 2
                   ? "bg-[#a4bc92] text-black font-medium"
-                  : "bg-[#f5f5f5] text-[#787878]"
+                  : "bg-[#f9f9f9] text-[#787878]"
               }`}
               onClick={() => handleTabClick(2)}
             >
-              Tab 2
+              Overview & Category
             </button>
             <button
               className={`px-4 py-2 rounded-full ${
                 activeTab === 3
                   ? "bg-[#a4bc92] text-black font-medium"
-                  : "bg-[#f5f5f5] text-[#787878]"
+                  : "bg-[#f9f9f9] text-[#787878]"
               }`}
               onClick={() => handleTabClick(3)}
             >
-              Tab 3
+              Time & Date
             </button>
             <button
               className={`px-4 py-2 rounded-full ${
                 activeTab === 4
                   ? "bg-[#a4bc92] text-black font-medium"
-                  : "bg-[#f5f5f5] text-[#787878]"
+                  : "bg-[#f9f9f9] text-[#787878]"
               }`}
               onClick={() => handleTabClick(4)}
             >
-              Tab 4
+              Image & Article
             </button>
           </div>
           <div className={styles.input}>
