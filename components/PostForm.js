@@ -21,9 +21,9 @@ const styles = {
   subHeading: "flex sm:text-3xl text-[#787878]",
   imageContainer: "flex object-contain w-1/4",
   formsContainer:
-    "bg-[#f9f9f9] rounded-[50px] sm:w-[45rem] sm:h-[20rem] w-[16rem] h-[26rem] p-10 gap-5 flex flex-col items-center",
+    "bg-[#f9f9f9] rounded-[50px] sm:w-[45rem] sm:h-[20rem] w-[16rem] h-[30rem] p-10 gap-5 flex flex-col items-center",
   tabContainer: "",
-  input: "flex items-center",
+  input: "flex items-center mt-[1rem] gap-1",
   boxLabel:"text-[#787878] mb-[0.6rem]",
   tabContainer:"flex sm:flex-row flex-col"
 };
