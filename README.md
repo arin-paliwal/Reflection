@@ -11,6 +11,7 @@ Reflection is a full stack web application that provides curated blogs and artic
 - Curated collection of blogs and articles
 - Attractive and minimalistic design
 - Built with Next.js, Firebase, Tailwind CSS, and other modern technologies
+- User Authorization & Authentication
 
 ## Getting Started
 
