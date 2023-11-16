@@ -16,6 +16,7 @@ const styles = {
   wrapper: "mx-auto my-auto",
 };
 
+
 export default function Home() {
   const { Posts } = useContext(ReflectionContext);
   const [loading, setLoading] = useState(true);

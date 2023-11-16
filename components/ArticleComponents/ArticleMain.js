@@ -174,7 +174,7 @@ const ArticleMain = ({ post, author }) => {
               {author?.data?.name} ● &nbsp;
               {new Date(post?.data?.postedOn).toLocaleString("en-US", {
                 day: "numeric",
-                month: "long",
+                // month: "long",
                 year: "numeric",
               })}
               &nbsp;● 698↑ 14↓
