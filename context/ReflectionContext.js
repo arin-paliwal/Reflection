@@ -68,7 +68,6 @@ const Provider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-
   const addUserToFirebase = async (user) => {
     const email = user.email;
     const name = user.displayName;
@@ -100,8 +99,6 @@ const Provider = ({ children }) => {
         // An error happened.
       });
   };
-  
-
   return (
     <ReflectionContext.Provider
       value={{ Posts, Users, handleUserAuthentication, currentUser,handleUserLogout }}
