@@ -6,6 +6,7 @@ import Loader from "@/components/Loader1";
 import { ReflectionContext } from "@/context/ReflectionContext";
 import { Archivo } from "next/font/google";
 import Standard from "@/components/Standard";
+import {useRouter} from "next/router";
 
 const archivo = Archivo({ subsets: ["latin"] });
 
@@ -20,8 +21,12 @@ const styles = {
 export default function Home() {
   const { Posts } = useContext(ReflectionContext);
   const [loading, setLoading] = useState(true);
-  const { currentUser } = useContext(ReflectionContext);
-
+  const { handleUserAuthentication,currentUser } = useContext(ReflectionContext);
+  const router = useRouter();
+  const handleAcceptAndSignIn = () => {
+    router.push("/");
+    handleUserAuthentication();
+  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);

@@ -5,10 +5,11 @@ import logo from "../../assets/images/logo.png";
 import React from "react";
 import tnc from "../../assets/images/tnc.gif";
 import Image from "next/image";
-import Router, { useRouter } from "next/router";
+import Router, {useRouter} from "next/router";
 import scroll from "../../assets/images/scroll.gif"
-import { useContext } from "react";
-import { ReflectionContext } from "@/context/ReflectionContext";
+import {useContext} from "react";
+import {ReflectionContext} from "@/context/ReflectionContext";
+
 const styles = {
   logoContainer: "flex items-center flex-start",
   navbarTnc:
@@ -21,7 +22,7 @@ const styles = {
   rightSide: "mt-[7rem] flex flex-col fixed",
   tncImage: "mt-[-150px]",
   heading:
-    "space-between text-5xl text-[#A4BC92] p-5 flex items-center justify-center", 
+    "space-between text-5xl text-[#A4BC92] p-5 flex items-center justify-center",
   tacContent: "max-w-3xl text-xl leading-9 justify-between",
   contenttac: "text-[#787878]",
   headingContent: "text-black font-bold",
@@ -31,28 +32,27 @@ const styles = {
   tncPage: "",
   leftSide: "mt-[7rem]",
   actionButton: "flex flex-col p-5 items-center justify-center",
-  accentedButton2:"bg-black text-white py-4 px-4 rounded-full",
+  accentedButton2: "bg-black text-white py-4 px-4 rounded-full",
   // rightSide:"object-contain"
 };
 
 const TermsConditions = () => {
-  function scrollToBottom()
-{
+  function scrollToBottom() {
     var height = document.body.scrollHeight;
-    window.scroll(0 , height);
-}
- const { handleUserAuthentication,currentUser } = useContext(ReflectionContext);
- const router = useRouter();
- const handleAcceptAndSignIn = () => {
-   router.push("/");
-   handleUserAuthentication();
-   console.log("Working Routing")
- };
+    window.scroll(0, height);
+  }
+
+  const {handleUserAuthentication, currentUser} = useContext(ReflectionContext);
+  const router = useRouter();
+  const handleAcceptAndSignIn = () => {
+    router.push("/");
+    handleUserAuthentication();
+  };
   return (
     <>
       <div className={styles.tncPage}>
         <div className={styles.navbarTnc}>
-          <Navbar />
+          <Navbar/>
         </div>
         <div className={styles.tandcwrapper}>
           <div className={styles.leftSide}>
@@ -68,14 +68,14 @@ const TermsConditions = () => {
                   their thoughts, ideas, and experiences.
                 </span>
                 <br></br>
-                <hr className="h-px my-8 bg-gray-700 border-0 dark:bg-gray-700" />
+                <hr className="h-px my-8 bg-gray-700 border-0 dark:bg-gray-700"/>
                 <span className={styles.allTnc}>
                   These Terms and Conditions govern your access to and use of
                   the Reflection website . By using the Website, you agree to be
                   bound by these Terms and Conditions.{" "}
                   <span className="underline">Please read them carefully.</span>
-                  <br />
-                  <br />
+                  <br/>
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       1. Acceptance of Terms :{" "}
@@ -87,7 +87,7 @@ const TermsConditions = () => {
                     not agree to these terms, you may not use the Web
                     Application.
                   </div>
-                  <br />
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       2. User Eligibility :{" "}
@@ -98,12 +98,12 @@ const TermsConditions = () => {
                     Web Application, you represent and warrant that you meet
                     these eligibility requirements.
                   </div>
-                  <br />
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       3. User Accounts
                     </span>
-                    <br />
+                    <br/>
                     <span>
                       <ol>
                         <li>
@@ -127,14 +127,14 @@ const TermsConditions = () => {
                         </li>
                       </ol>
                     </span>
-                    <br />
+                    <br/>
                   </div>
-                  <br />
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       4. User Content
                     </span>{" "}
-                    <br />
+                    <br/>
                     <span>
                       <ol>
                         <li>
@@ -164,12 +164,12 @@ const TermsConditions = () => {
                       </ol>
                     </span>
                   </div>
-                  <br />
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       5. Intellectual Property
                     </span>
-                    <br />{" "}
+                    <br/>{" "}
                     <span>
                       <ol>
                         <li>
@@ -190,13 +190,13 @@ const TermsConditions = () => {
                       </ol>
                     </span>
                   </div>
-                  <br />
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       6. Prohibited Conduct :&nbsp;
                     </span>
                     When using the Reflection Web Application, you agree not to:
-                    <br />
+                    <br/>
                     <span>
                       <ol>
                         <li>
@@ -247,7 +247,7 @@ const TermsConditions = () => {
                       </ol>
                     </span>
                   </div>
-                  <br />
+                  <br/>
                   <div className={styles.individual}>
                     <span className={styles.headingContent}>
                       7. Disclaimer of Warranties :{" "}
@@ -260,7 +260,7 @@ const TermsConditions = () => {
                     implied warranties of merchantability, fitness for a
                     particular purpose, or non-infringement.
                   </div>
-                  <br />
+                  <br/>
                 </span>
               </div>
             </div>
@@ -272,33 +272,19 @@ const TermsConditions = () => {
                   Terms & <br></br>
                   Conditions
                 </h1>
-                  {/* <button className={styles.scrollIcon}
+                {/* <button className={styles.scrollIcon}
                   onClick={scrollToBottom}
                   ><Image src={scroll} alt="scroll-gif" 
                   width={80}
                   /></button> */}
               </div>
-             <div className={styles.rightSideImage}>
-               <Image className={styles.tncImage} src={tnc} alt="tncLogo" height="240px" />
-             </div>
+              <div className={styles.rightSideImage}>
+                <Image className={styles.tncImage} src={tnc} alt="tncLogo" height="240px"/>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {currentUser ? (
-        <></>
-      ) : (
-        <div className={styles.actionButton}>
-          <Link href={`/t&c/terms`}>
-            <div
-              className={styles.accentedButton2}
-              onClick={handleAcceptAndSignIn}
-            >
-              Accept T&C and Sign In
-            </div>
-          </Link>
-        </div>
-      )}
     </>
   );
 };
